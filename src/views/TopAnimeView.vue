@@ -21,3 +21,8 @@ export default {
     </div>
 </template>
 
+<style>
+.container {
+    grid-auto-rows: 1fr
+}
+</style>

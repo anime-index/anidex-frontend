@@ -16,6 +16,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/topanime">Anime Top</RouterLink>
       </nav>
+      <br>
     </div>
   </header>
 
