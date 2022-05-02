@@ -15,7 +15,7 @@ export default {
 
 <template>
     <div class="container">
-        <div class="row">
+        <div class="row gy-3">
             <AnimeCard v-for="item in myjson" :key="item.id" :title="item.title" :imageurl="item.main_pic" :score="item.score" :type="item.type"/>
         </div>
     </div>
