@@ -1,6 +1,11 @@
+<script setup>
+import TestComponentVue from '../components/TestComponent.vue';
+import TestComponent from '../components/TestComponent.vue';
+</script>
+
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <TestComponent></TestComponent>
   </div>
 </template>
 
