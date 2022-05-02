@@ -1,6 +1,8 @@
 <script setup>
 import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.min.js"
 import { RouterLink, RouterView } from 'vue-router'
+import Navigation from "./components/Navigation.vue";
 
 </script>
 
@@ -16,7 +18,6 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <script>
-import Navigation from "./components/Navigation";
 
 export default {
   name: "App",
