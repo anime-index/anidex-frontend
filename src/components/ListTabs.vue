@@ -3,6 +3,7 @@
 import AnimeTableItemVue from './AnimeTableItem.vue';
 import AnimeCardVue from './AnimeCard.vue';
 import AnimeCard from './AnimeCard.vue';
+import RenameModal from './RenameModal.vue';
 </script>
 
 <script>
@@ -18,20 +19,21 @@ export default {
         list_tabs: [{id: "watching", text: "Watching", list: watching, key: 0}, 
         {id: "completed", text: "Completed", list: completed, key: 1}, 
         {id: "to_watch", text: "To Watch", list: to_watch, key: 2}],
-        newListName: "",
         list_key: 2,
         searchList: search,
-        auxList: watching
+        auxList: watching,
+        renameModalTitle: "Create List",
+        renameModalPlaceholder: "List Name",
+        renameModalId: "listCreate"
     }
   },
   methods: {
-      createList() {
-        if (this.newListName !== "") {
-            this.list_tabs.push({id: "custom" + (++this.list_key - 2).toString(), text: this.newListName, list: [], key: this.list_key})
-            console.log(this.list_tabs)
+      createList(newListName) {
+        console.log(newListName)
+        if (newListName !== "") {
+            this.list_tabs.push({id: "custom" + (++this.list_key - 2).toString(), text: newListName, list: [], key: this.list_key})
             document.getElementById("dismiss").click()
         }
-        this.newListName = ""
       },
 
       addToAuxList(_title, _score, imageurl, _type){
@@ -58,27 +60,7 @@ export default {
                         <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#listCreate">
                             <i class="bi bi-file-earmark-plus"></i>
                         </button>
-                        <!-- Modal -->
-                        <div ref="listCreateModal" class="modal fade" id="listCreate" tabindex="-1" aria-labelledby="listCreateLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="listCreateLabel">Create New List</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="input-group mb-3">
-                                            <input v-model="newListName" type="text" class="form-control" aria-label="listNameInput" aria-describedby="inputGroup-sizing-default"
-                                            @keyup.enter="createList" placeholder="List Name">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="dismiss">Cancel</button>
-                                        <button type="button" class="btn btn-primary" @click="createList">Create</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <RenameModal :title="renameModalTitle" :placeholder="renameModalPlaceholder" :modalId="renameModalId" @rename-action="createList"></RenameModal>
                     </li>
                 </ul>
                 </div>
