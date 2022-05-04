@@ -26,11 +26,11 @@ defineProps({
         </div>
     </div-->
 
-    <div class="col mb-3">
+    <div class="col">
         <div class="card bg-dark h-100" style="min-width: 380px;">
             <div class="row">
                 <div class="col">
-                    <img :src="imageurl" class="img-fluid rounded-start h-100">
+                    <img :src="imageurl" class="img-fluid rounded-start myclass">
                 </div>
                 <div class="col">
                     <div class="card-body">
@@ -61,3 +61,9 @@ defineProps({
     object-fit: contain;
 }
 </style-->
+
+<style>
+.myclass {
+    object-fit: contain;
+}
+</style>
