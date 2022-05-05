@@ -1,8 +1,5 @@
-
 <script setup>
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.min.js";
-import { Popover } from 'bootstrap/dist/js/bootstrap.esm.min.js'
+import { Popover } from 'bootstrap/dist/js/bootstrap.min.js'
 import { onUpdated } from '@vue/runtime-core';
 defineProps({
     position: Number,

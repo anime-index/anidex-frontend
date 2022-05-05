@@ -1,21 +1,26 @@
 <script setup>
-import TopAnimeCard from '../components/TopAnimeCard.vue'
+import AnimeCard from '../components/AnimeCard.vue'
+import axios from 'axios'
 </script>
 
 <script>
-import json from "./anime.json"
 export default {
   data() {
     return {
-      myjson: json,
+      myjson: [],
       position: 0
     }
+  },
+  mounted () {
+    axios
+      .get('http://127.0.0.1:8000/top/anime')
+      .then(response => (this.myjson = response.data)) //response => (this.info = response)
   }
 }
 </script>
 
 <template>
-    <div class="container">
+    <div class="container mymargin">
         <div class="row">
             <div class="col-3">
                 <h5>Sort By</h5>
@@ -60,16 +65,18 @@ export default {
                 </select>
             </div>
             <div class="col-9">
-              <div class="row">
-                  <TopAnimeCard v-for="item in myjson" :key="item.id" :title="item.title" :imageurl="item.main_pic" :score="item.score" :type="item.type" :position="myjson.indexOf(item)+1"/>
+              <div class="row gy-3">
+                  <AnimeCard v-for="item in myjson" :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members"
+                  :score="item.mal_score" :image_url="item.image_url" :episodes="item.episodes" :type="item.type" :synopsis="item.synopsis"
+                  :position="myjson.indexOf(item)+1"/>
               </div>
             </div>
-        </div>
     </div>
+  </div>
 </template>
 
 <style>
-.container {
-    grid-auto-rows: 1fr
+.mymargin {
+  margin-top: 36px;
 }
 </style>
