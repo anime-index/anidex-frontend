@@ -66,12 +66,11 @@ export default {
             </div>
             <div class="col-9">
               <div class="row gy-3">
-                  <AnimeCard v-for="item in myjson" :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :popularity="item.popularity"
+                  <AnimeCard v-for="item in myjson" :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members"
                   :score="item.mal_score" :image_url="item.image_url" :episodes="item.episodes" :type="item.type" :synopsis="item.synopsis"
                   :position="myjson.indexOf(item)+1"/>
               </div>
             </div>
-        </div>
     </div>
   </div>
 </template>

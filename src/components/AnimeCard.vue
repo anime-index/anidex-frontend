@@ -8,13 +8,15 @@ defineProps({
     image_url: String,
     episodes: Number,
     type: String,
-    synopsis: String
+    synopsis: String,
+    position: Number
 })
 </script>
 
 <template>
     <div class="col">
         <div class="card mycard">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-warning">#{{position}}</span>
             <div class="row">
                 <div class="col myfixed">
                     <img :src="image_url" class="myimg">
@@ -23,7 +25,7 @@ defineProps({
                     <div class="card-body mybody">
                         <a :href="'https://myanimelist.net/anime/' + anime_id"><h5 class="card-title">{{title}}</h5></a>
                         <p class="card_text">{{score.toPrecision(3)}} | {{format_number(popularity)}} members | 
-                            {{type}} | {{episodes}} episodes</p>
+                            {{type}} | {{episodes}} episode{{"s".repeat(episodes>1)}}</p>
                         <p class="card_text overfl">{{synopsis}}</p>
                     </div>
                 </div>
@@ -37,12 +39,15 @@ defineProps({
 .mycard {
     min-width: 360px;
 }
+.myfixed {
+    flex: 0 0 185px;
+}
 .myimg {
     width: 185px;
     height: 265px;
 }
-.myfixed {
-    flex: 0 0 185px;
+.mybody {
+    padding: 8px 8px;
 }
 .overfl {
     overflow: hidden;
