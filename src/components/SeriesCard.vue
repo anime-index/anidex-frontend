@@ -1,13 +1,13 @@
 <script setup>
 import {format_number} from "../useful/functions.js"
 defineProps({
-    anime_id: Number,
+    series_id: Number,
     title: String,
     popularity: Number,
     score: Number,
     image_url: String,
     episodes: Number,
-    type: String,
+    seasons: Number,
     synopsis: String
 })
 </script>
@@ -21,9 +21,9 @@ defineProps({
                 </div>
                 <div class="col mysmall">
                     <div class="card-body mybody">
-                        <a :href="'https://myanimelist.net/anime/' + anime_id"><h5 class="card-title">{{title}}</h5></a>
+                        <RouterLink :to="'/series/' + series_id"><h5 class="card-title">{{title}}</h5></RouterLink>
                         <p class="card_text">{{score.toPrecision(3)}} | {{format_number(popularity)}} members | 
-                            {{type}} | {{episodes}} episodes</p>
+                            {{seasons}} season{{"s".repeat(seasons>1)}} | {{episodes}} episodes</p>
                         <p class="card_text overfl">{{synopsis}}</p>
                     </div>
                 </div>
@@ -43,6 +43,9 @@ defineProps({
 }
 .myfixed {
     flex: 0 0 185px;
+}
+.mybody {
+    padding: 8px 8px;
 }
 .overfl {
     overflow: hidden;

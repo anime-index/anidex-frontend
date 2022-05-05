@@ -1,5 +1,5 @@
 <script setup>
-import AnimeCard from '../components/AnimeCard.vue'
+import SeriesCard from '../components/SeriesCard.vue'
 import axios from 'axios'
 </script>
 
@@ -12,7 +12,7 @@ export default {
   },
   mounted () {
     axios
-      .get('http://127.0.0.1:8000/top/anime')
+      .get('http://127.0.0.1:8000/top/series')
       .then(response => (this.myjson = response.data)) //response => (this.info = response)
   }
 }
@@ -21,8 +21,8 @@ export default {
 <template>
   <div class="container mymargin">
     <div class="row gy-3">
-        <AnimeCard v-for="item in myjson" :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :popularity="item.popularity"
-        :score="item.mal_score" :image_url="item.image_url" :episodes="item.episodes" :type="item.type" :synopsis="item.synopsis"/>
+        <SeriesCard v-for="item in myjson" :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
+        :score="item.score" :image_url="item.image_url" :episodes="item.episodes" :seasons="item.seasons" :synopsis="item.synopsis"/>
     </div>
   </div>
 </template>
