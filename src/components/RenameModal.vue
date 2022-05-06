@@ -9,7 +9,9 @@ defineProps({
 <script>
 export default {
     data() {
-        newName: ""
+        return {
+            newName: ""
+        }
     }
 }
 </script>

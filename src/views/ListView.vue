@@ -1,9 +1,9 @@
 <script setup>
-import ListTabsVue from '../components/ListTabs.vue';
+import ListTabs from '../components/ListTabs.vue';
 </script>
 
 <template>
     <div class="container">
-        <ListTabsVue></ListTabsVue>
+        <ListTabs/>
     </div>
 </template>

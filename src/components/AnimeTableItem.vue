@@ -3,6 +3,7 @@ import { Popover } from 'bootstrap/dist/js/bootstrap.min.js'
 import { onUpdated } from '@vue/runtime-core';
 defineProps({
     position: Number,
+    columns: Array,
     title: String,
     imageurl: String,
     score: Number,
@@ -13,10 +14,26 @@ defineProps({
 
 <script>
 export default {
+    methods: {
+        getColumnData(column) {
+            switch (column) {
+                case "Title":
+                    return this.title
+                    break
+                case "Score":
+                    return this.score
+                    break
+                case "Type":
+                    return this.type
+                default:
+                    return this.title
+                    break
+            }
+        } 
+    },
     mounted() {
         Array.from(document.querySelectorAll('[data-bs-toggle="popover"]'))
         .forEach(popoverNode => new Popover(popoverNode, {html: true, content: function() {
-            console.log(this.getAttribute('data-img'))
             return '<div class="media"><img class="img-fluid" src="' + this.getAttribute('data-img') + '"></div>'}
             }))
     }
@@ -25,10 +42,8 @@ export default {
 
 
 <template>
-     <tr ref="tr" data-bs-container="body" data-bs-trigger="hover" data-bs-toggle="popover" data-bs-placement="left" :title="title" :data-img="imageurl">
+     <tr data-bs-container="body" data-bs-trigger="hover" data-bs-toggle="popover" data-bs-placement="left" :title="title" :data-img="imageurl">
       <th scope="row">{{position}}</th>
-      <td>{{title}}</td>
-      <td>{{score}}</td>
-      <td>{{type}}</td>
+      <td v-for="column in columns" :key="columns.indexOf(column)">{{getColumnData(column)}}</td>
     </tr>
 </template>
