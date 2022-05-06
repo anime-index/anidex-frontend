@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TopAnimeView from '../views/TopAnimeView.vue'
 import ListView from '../views/ListView.vue'
+import SearchViewVue from '../views/SearchView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,11 @@ const router = createRouter({
       path: '/list',
       name: 'listanime',
       component: ListView
+    },
+    {
+      path: '/search',
+      name: 'searchanime',
+      component: SearchViewVue
     }
   ]
 })

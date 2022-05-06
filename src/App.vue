@@ -20,6 +20,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
             <RouterLink to="/about">About</RouterLink>
             <RouterLink to="/topanime">Anime Top</RouterLink>
             <RouterLink to="/list">List</RouterLink>
+            <RouterLink to="/search">Search Anime</RouterLink>
           </nav>
           <br>
         </div>

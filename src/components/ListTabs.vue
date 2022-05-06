@@ -1,4 +1,3 @@
-
 <script setup>
 import AnimeTableItemVue from './AnimeTableItem.vue';
 import AnimeCardVue from './AnimeCard.vue';
