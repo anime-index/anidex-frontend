@@ -19,4 +19,4 @@ npm run dev
 ```
 
 ### Backend server
-The website needs a backend server to get the anime data. It needs to be run separately, as it is an indepdendent API. Go to: https://github.com/anime-index/anidex-frontend
+The website needs a backend server to get the anime data. It needs to be run separately, as it is an indepdendent API. Go to: https://github.com/anime-index/anidex-backend
