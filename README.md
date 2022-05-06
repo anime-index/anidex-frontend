@@ -1,33 +1,31 @@
 # anidex-frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+Frontend. Features: Top Anime, Franchises stats, Lists, Search
 
-<!---
+## Project setup
 
-## Recommended IDE Setup
+### Get the code
+```sh
+git clone https://github.com/anime-index/anidex-frontend
+cd anidex-frontend
+```
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
-
--->
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
+### Install libraries
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
+### Run the development server
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Backend server
+The website needs a backend server to get the anime data. It needs to be run separately, as it is an indepdendent API. Go to: https://github.com/anime-index/anidex-backend
 
-```sh
-npm run build
-```
+
+#### Ignore (deployment)
+- npm run build
+- npm install -g serve (1st time only)
+- serve -s dist  
+- Look for a deployment service
