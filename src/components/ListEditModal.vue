@@ -2,8 +2,8 @@
 import NumericRange from './filters/NumericRange.vue'
 import ItemSelect from './filters/ItemSelect.vue'
 import FlexRadio from './filters/FlexRadio.vue'
-import AnimeTable from './AnimeTable.vue';
-import AnimeCard from './AnimeCard.vue'
+import AnimeTableEdit from './AnimeTableEdit.vue';
+import AnimeCardAdder from './AnimeCardAdder.vue'
 import axios from 'axios'
 import ConfirmationModal from './ConfirmationModal.vue';
 defineProps({
@@ -58,6 +58,15 @@ export default {
             myjson: []
         }
     },
+    methods: {
+        emitAddEntry(title, score, image_url, type) {
+            this.$emit('addEntry', title, score, image_url, type)
+        },
+
+        emitRemoveEntry(position) {
+            this.$emit('removeEntry', position)
+        }
+    },
     mounted() {
         axios
             .get('http://127.0.0.1:8000/top/anime')
@@ -77,7 +86,7 @@ export default {
                         <h5 class="modal-title" id="editListLabel">{{"Edit " + listNameStatic}}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body listEditModal">
                         <div class="container">
                             <div class="row">
                                 <div class="input-group mb-3">
@@ -96,33 +105,25 @@ export default {
                                         :minValue="scoreRangeData.minValue" :maxValue="scoreRangeData.maxValue" :rangeStep="scoreRangeData.rangeStep"></NumericRange>
                                     <FlexRadio :flexRadioId="statusRadioData.flexRadioId" :flexRadioLabel="statusRadioData.flexRadioLabel" :selections="statusRadioData.selections"></FlexRadio>
                                 </div>
-                                <div class="col aniSearchBlock">
+                                <div class="col">
                                     <h5>Anime Search</h5>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" aria-label="animeQuery" aria-describedby="inputGroup-sizing-default" placeholder="Search...">
                                     </div>
                                     <div v-for="item in myjson" :key="item.id" class="content">
-                                        <div class="row">
-                                            <div class="column">
-                                                <AnimeCard :key="item.id" :title="item.title" :imageurl="item.main_pic" :score="item.score" :type="item.type"/>
-                                            </div>
-                                            <div class="column">
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAnime">
-                                                    <i class="bi bi-box-arrow-right"> Add</i>
-                                                </button>
-                                            </div>
-                                        </div>
+                                        <AnimeCardAdder :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :score="item.mal_score" :image_url="item.image_url" :type="item.type"
+                                        @add-entry="emitAddEntry"/>
                                     </div>    
                                 </div>
-                                <div class="col listTable">
+                                <div class="col">
                                     <h5>Your List</h5>
-                                    <AnimeTable :columns="animeTableColumns" :items="listItems"></AnimeTable>
+                                    <AnimeTableEdit :columns="animeTableColumns" :items="listItems" @remove-entry="emitRemoveEntry"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-secondary" @click="$emit('cancelEdit', listName, listItems)" data-bs-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-danger" data-bs-target="#confirmationModal"  data-bs-toggle="modal">Delete</button>
                         <button type="button" class="btn btn-primary" @click="$emit('saveChanges', listName, listItems)" data-bs-dismiss="modal">Save</button>
                     </div>

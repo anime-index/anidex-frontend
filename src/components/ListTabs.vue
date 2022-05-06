@@ -15,18 +15,15 @@ import search from './mockLists/search.json'
 export default {
   data() {
     return {
-        list_tabs: [{id: "watching", text: "Watching", list: watching, key: 0}, 
-        {id: "completed", text: "Completed", list: completed, key: 1}, 
-        {id: "to_watch", text: "To Watch", list: to_watch, key: 2}],
+        list_tabs: [{id: "watching", text: "Watching", list: [], key: 0}, 
+        {id: "completed", text: "Completed", list: [], key: 1}, 
+        {id: "to_watch", text: "To Watch", list: [], key: 2}],
         list_key: 2,
         list_custom_key:0,
 
         currentTab: 0,
         currentTabName: "",
         currentTabAnimeList: [],
-
-        searchList: search,
-        auxList: watching,
 
         renameModalTitle: "Create List",
         renameModalPlaceholder: "List Name",
@@ -44,23 +41,29 @@ export default {
         }
       },
 
-      addToAuxList(_title, _score, imageurl, _type){
-        watching.push({position: watching.length++, main_pic: imageurl, title: _title, type: _type, score: _score})
+      addToList(_title, _score, _image_url, _type){
+        this.currentTabAnimeList.push({position: this.currentTabAnimeList.length+1, main_pic: _image_url, title: _title, type: _type, score: _score})
+      },
+
+      removeFromList(position) {
+        this.currentTabAnimeList.splice(position-1, 1)
       },
 
       tabChange(tab) {
           this.currentTab = tab
-          console.log(this.currentTab)
       },
 
       editListAuxiliars() {
+          console.log(this.currentTabAnimeList)
           this.currentTabName = this.list_tabs[this.currentTab].text
-          this.currentTabAnimeList = this.list_tabs[this.currentTab].list
+          this.currentTabAnimeList = this.list_tabs[this.currentTab].list.slice()
+          console.log(this.currentTabAnimeList)
       },
 
       saveListEdition(newName, newList) {
           this.list_tabs[this.currentTab].text = newName
           this.list_tabs[this.currentTab].list = newList
+          console.log(newList)
       },
 
       deleteList() {
@@ -100,7 +103,7 @@ export default {
                     <i class="bi bi-pencil-square"> Edit List</i>
                 </button>
                 <ListEditModal :list-name="currentTabName" :list-name-static="currentTabName" :list-items="currentTabAnimeList" 
-                @delete-list="deleteList" @save-changes="saveListEdition"></ListEditModal>
+                @cancel-edit="editListAuxiliars" @delete-list="deleteList" @save-changes="saveListEdition" @add-entry="addToList" @remove-entry="removeFromList"></ListEditModal>
             </div>
         </div>
         
