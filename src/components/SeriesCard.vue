@@ -16,7 +16,7 @@ defineProps({
 <template>
     <div class="col">
         <div class="card mycard">
-            <span class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-success">#{{position}}</span>
+            <span class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-success mybadge">#{{position}}</span>
             <div class="row">
                 <div class="col myfixed">
                     <img :src="image_url" class="myimg">
@@ -35,6 +35,9 @@ defineProps({
 </template>
 
 <style>
+.mybadge {
+    z-index: 1;
+}
 .mycard {
     min-width: 360px;
 }
@@ -42,8 +45,13 @@ defineProps({
     flex: 0 0 185px;
 }
 .myimg {
+    transition: transform 0.5s;
     width: 185px;
     height: 265px;
+}
+.myimg:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 .mybody {
     padding: 8px 8px;
