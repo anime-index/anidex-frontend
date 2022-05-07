@@ -22,10 +22,10 @@ export default {
 					this.page = response.data.page
 					this.last_page = response.data.last_page
 				})
+            window.scrollTo(0, 0)
 		}
 	},
 	mounted() {
-		console.log('Starting')
 		this.select_page(0)
 	}
 }
@@ -36,7 +36,8 @@ export default {
 	<div class="container">
 		<div class="row gy-3">
 				<SeriesCard v-for="item in myjson" :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
-				:score="item.score" :image_url="item.image_url" :episodes="item.episodes" :seasons="item.seasons" :synopsis="item.synopsis"/>
+				:score="item.score" :image_url="item.image_url" :episodes="item.episodes" :seasons="item.seasons" :synopsis="item.synopsis"
+                :position="item.position"/>
 		</div>
 	</div>
     <Navigation @callback="select_page" :page="page" :last_page="last_page"/>

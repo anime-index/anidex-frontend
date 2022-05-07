@@ -8,10 +8,6 @@ import ListEditModal from './ListEditModal.vue'
 </script>
 
 <script>
-import watching from './mockLists/watching.json'
-import completed from './mockLists/completed.json'
-import to_watch from './mockLists/to_watch.json'
-import search from './mockLists/search.json'
 export default {
   data() {
     return {
