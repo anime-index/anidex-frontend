@@ -55,6 +55,7 @@ export default {
             },
 
             animeTableColumns: ["Title", "Score", "Type"],
+            searchQuery: null,
             myjson: []
         }
     },
@@ -71,7 +72,21 @@ export default {
         axios
             .get('http://127.0.0.1:8000/top/anime')
             .then(response => (this.myjson = response.data)) //response => (this.info = response)
+    },
+    computed: {
+        resultQuery(){
+        if (this.searchQuery) {
+            return this.myjson.filter(item => {
+            return this.searchQuery
+                .toLowerCase()
+                .split(" ")
+                .every(v => item.title.toLowerCase().includes(v));
+            });
+        } else {        
+            return this.myjson;
+        }
     }
+  }
 }
 </script>
 
@@ -106,9 +121,9 @@ export default {
                                 <div class="col anime-search">
                                     <h5>Anime Search</h5>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control text-box" aria-label="animeQuery" aria-describedby="inputGroup-sizing-default" placeholder="Search...">
+                                        <input type="text" class="form-control text-box" v-model="searchQuery" aria-label="animeQuery" aria-describedby="inputGroup-sizing-default" placeholder="Search...">
                                     </div>
-                                    <div v-for="item in myjson" :key="item.id" class="anime-cards">
+                                    <div v-for="item in resultQuery" :key="item.id" class="anime-cards">
                                         <AnimeCardAdder :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :score="item.mal_score" :image_url="item.image_url" :type="item.type"
                                         @add-entry="emitAddEntry"/>
                                     </div>    
