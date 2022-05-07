@@ -19,7 +19,7 @@ defineProps({
                     <div class="card-body mybody">
                         <h5 class="card-title">{{title}}</h5>
                         <p class="card_text">{{score.toPrecision(3)}} | {{type}}</p>
-                        <button type="button" class="btn btn-primary addbtn" @click="$emit('addEntry', this.title, 0, this.image_url, this.type)">
+                        <button type="button" class="btn add-btn shadow-none" @click="$emit('addEntry', this.title, 0, this.image_url, this.type)">
                             <i class="bi bi-box-arrow-right"> Add</i>
                         </button>
                     </div>
@@ -33,6 +33,7 @@ defineProps({
 <style>
 .mycard {
     min-width: 360px;
+    background-color: #130230;
 }
 .myfixed {
     flex: 0 0 185px;
@@ -50,9 +51,19 @@ defineProps({
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 }
-.addbtn {
+
+.add-btn {
     position: absolute;
     bottom: 16px;
     right: 16px;
+    background-color: #69b549;
+    border: #69b549;
+    color: white;
+}
+
+.add-btn:hover {
+    background-color: #368519;
+    border: #368519;
+    color: white;
 }
 </style>

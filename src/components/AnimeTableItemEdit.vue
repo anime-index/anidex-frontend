@@ -36,9 +36,33 @@ export default {
 
 
 <template>
-     <tr>
+     <tr class="list-row">
       <th scope="row">{{position}}</th>
       <td v-for="column in columns" :key="columns.indexOf(column)">{{getColumnData(column)}}</td>
-      <td><button class="btn btn-transparent" @click="$emit('removeEntry', this.position)"><i class="bi bi-x-circle" ></i></button></td>
+      <td><button class="btn btn-transparent" @click="$emit('removeEntry', this.position)"><i class="bi bi-x-circle" style=""></i></button></td>
     </tr>
 </template>
+
+<style scoped>
+.list-row {
+    background-color: #3a2c5a;
+    color: #FFFFFF;
+    border: #FFFFFF;
+}
+
+.list-row:hover {
+    background-color: #2d1d50;
+    color: #FFFFFF;
+    border: #FFFFFF;
+}
+
+.bi-x-circle {
+    color: #fff;
+}
+
+.bi-x-circle:hover {
+    color: rgb(146, 146, 146);
+}
+
+
+</style>

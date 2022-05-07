@@ -7,3 +7,11 @@ import ListTabs from '../components/ListTabs.vue';
         <ListTabs/>
     </div>
 </template>
+
+<style scoped>
+    .container {
+        background-color: #130230;
+        padding: 0%;
+        margin-top: 32px;
+    }
+</style>
