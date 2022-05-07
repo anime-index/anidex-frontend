@@ -43,13 +43,108 @@ import { RouterLink, RouterView } from 'vue-router'
       </div>
     </nav>
     <RouterView />
+    <div id="footer_sitemap">
+      <div
+          id="footer_toggle_one"
+          class="ydb_circle ydb_sitemap_toggle toggle"
+          data-toggle="#ydb_sitemap_holder"
+          data-linked="#footer_toggle_two"/>
+      <div
+          id="sitemap-desc"
+          class="text-center">Sitemap</div>
+      <div id="ydb_sitemap_holder">
+        <div
+            id="footer_toggle_two"
+            class="ydb_circle ydb_sitemap_toggle toggle"
+            data-toggle="#ydb_sitemap_holder"
+            data-linked="#footer_toggle_one"/>
+        <div class="container-fluid">
+          <div class="row content-holder">
+            <div
+                id="footer-nav"
+                class="col-sm-24 nav">
+              <ul
+                  id="menu-main-menu-2"
+                  class="menu">
+                <li class="menu-item menu-item-has-children">
+                  <RouterLink to="/">Home</RouterLink>
+                  <ul class="sub-menu">
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <RouterLink to="/">Profile</RouterLink>
+                  <ul class="sub-menu">
+                    <li class="menu-item">
+                      <RouterLink to="/lists">My Lists</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">My Reviews</RouterLink>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <RouterLink to="/search">Browse Anime</RouterLink>
+                  <ul class="sub-menu">
+                    <li class="menu-item menu-item-75">
+                      <RouterLink to="/search">Advanced Search</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">Seasons</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">Genres</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">Studios</RouterLink>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <RouterLink to="/top">Tops</RouterLink>
+                  <ul class="sub-menu">
+                    <li class="menu-item">
+                      <RouterLink to="/top/anime">Top of Anime</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/top/series">Top of Series</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/top">Custom Top</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/top">Top Recommendation</RouterLink>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <RouterLink to="/help">Help</RouterLink>
+                  <ul class="sub-menu">
+                    <li class="menu-item">
+                      <RouterLink to="/">FAQ</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">Support</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">About Anidex</RouterLink>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
-  #topappbar{
-    margin_bottom: 50px
-  }
-  </style>
-
-
+.menu{
+  display: flex;
+}
+.menu-item{
+  display: block;
+  margin-right: 20px;
+}
+</style>
