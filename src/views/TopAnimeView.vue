@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container" style=color:white>
         <div class="row">
             <div class="col-3">
                 <h5>Sort By</h5>

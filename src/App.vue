@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
       <div id="topappbar" class="container-fluid" >
         <a class="navbar-brand" href="#">Anidex</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -4,7 +4,7 @@ import axios from 'axios'
 </script>
 
 <template>
-    <div id="search" class="min-vh-100">
+    <div id="search" class="min-vh-100" style=color:white>
       <div class="container">      
         <div class="row">
             <div class="col-3">
