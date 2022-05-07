@@ -1,8 +1,8 @@
 <script setup>
-import "@popperjs/core"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
 import "bootstrap-icons/font/bootstrap-icons.css"
+import "@popperjs/core"
 import { RouterLink, RouterView } from 'vue-router'
 </script>
 

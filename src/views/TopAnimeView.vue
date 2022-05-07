@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <div class="container mymargin">
+    <div class="container">
         <div class="row">
             <div class="col-3">
                 <h5>Sort By</h5>
@@ -74,9 +74,3 @@ export default {
     </div>
   </div>
 </template>
-
-<style>
-.mymargin {
-  margin-top: 36px;
-}
-</style>
