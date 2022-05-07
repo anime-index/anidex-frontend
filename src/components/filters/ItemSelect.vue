@@ -15,3 +15,14 @@ defineProps({
         </select>
     </div>
 </template>
+
+<style scoped>
+.form-select {
+    background-color: #000021;
+    color: #fff
+}
+
+option:hover {
+    background-color: #3a2c5a;
+}
+</style>

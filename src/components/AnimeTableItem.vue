@@ -42,8 +42,22 @@ export default {
 
 
 <template>
-     <tr data-bs-container="body" data-bs-trigger="hover" data-bs-toggle="popover" data-bs-placement="left" :title="title" :data-img="imageurl">
+     <tr class="list-row" data-bs-container="body" data-bs-trigger="hover" data-bs-toggle="popover" data-bs-placement="left" :title="title" :data-img="imageurl">
       <th scope="row">{{position}}</th>
       <td v-for="column in columns" :key="columns.indexOf(column)">{{getColumnData(column)}}</td>
     </tr>
 </template>
+
+<style scoped>
+.list-row {
+    background-color: #3a2c5a;
+    color: #FFFFFF;
+    border: #FFFFFF;
+}
+
+.list-row:hover {
+    background-color: #2d1d50;
+    color: #FFFFFF;
+    border: #FFFFFF;
+}
+</style>

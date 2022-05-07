@@ -41,13 +41,13 @@ export default {
                 rangeId: "scoreRange",
                 labelText: "Score",
                 minValue: 0, 
-                maxValue: 1,
+                maxValue: 10,
                 rangeStep: 0.5
             },
 
             statusRadioData: {
                 flexRadioId: "statusRadio",
-                labelText: "Status",
+                flexRadioLabelText: "Status",
                 selections: [
                     {selectionId: "airing", selectionLabel: "Airing"},
                     {selectionId: "finished", selectionLabel: "Finished"}
@@ -79,38 +79,36 @@ export default {
 <template>
     <!-- Modal -->
     <div>
-        <div class="modal" id="editMode" tabindex="-1" aria-labelledby="editListLabel" aria-hidden="true">
+        <div class="modal fade" id="editMode" tabindex="-1" aria-labelledby="editListLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editListLabel">{{"Edit " + listNameStatic}}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close btn-close-white shadow-none" @click="$emit('cancelEdit', listName, listItems)" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body listEditModal">
+                    <div class="modal-body">
                         <div class="container">
-                            <div class="row">
-                                <div class="input-group mb-3">
-                                    <input v-model="listName" type="text" class="form-control" aria-label="listNameInput" aria-describedby="input-edit"
-                                    placeholder="List Name">
-                                </div>
+                            <div class="input-group mb-3">
+                                <input v-model="listName" type="text" class="form-control text-box" aria-label="listNameInput" aria-describedby="input-edit"
+                                placeholder="List Name">
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <h5>Filters</h5>
                                     <NumericRange :rangeId="yearRangeData.rangeId" :labelText="yearRangeData.labelText"
                                         :minValue="yearRangeData.minValue" :maxValue="yearRangeData.maxValue" :rangeStep="yearRangeData.rangeStep"></NumericRange>
-                                    <ItemSelect :selectId="genreSelectData.selectId" :labelText="genreSelectData.labelText" :selections="genreSelectData.selections"></ItemSelect>
-                                    <ItemSelect :selectId="studioSelectData.selectId" :labelText="studioSelectData.labelText" :selections="studioSelectData.selections"></ItemSelect>
-                                    <NumericRange :rangeId="scoreRangeData.rangeId" :labelText="scoreRangeData.labelText"
+                                    <ItemSelect style="margin-top:8px;" :selectId="genreSelectData.selectId" :labelText="genreSelectData.labelText" :selections="genreSelectData.selections"></ItemSelect>
+                                    <ItemSelect style="margin-top:16px;" :selectId="studioSelectData.selectId" :labelText="studioSelectData.labelText" :selections="studioSelectData.selections"></ItemSelect>
+                                    <NumericRange style="margin-top:16px;" :rangeId="scoreRangeData.rangeId" :labelText="scoreRangeData.labelText"
                                         :minValue="scoreRangeData.minValue" :maxValue="scoreRangeData.maxValue" :rangeStep="scoreRangeData.rangeStep"></NumericRange>
-                                    <FlexRadio :flexRadioId="statusRadioData.flexRadioId" :flexRadioLabel="statusRadioData.flexRadioLabel" :selections="statusRadioData.selections"></FlexRadio>
+                                    <FlexRadio style="margin-top:8px;" :flexRadioId="statusRadioData.flexRadioId" :flexRadioLabelText="statusRadioData.flexRadioLabelText" :selections="statusRadioData.selections"></FlexRadio>
                                 </div>
-                                <div class="col">
+                                <div class="col anime-search">
                                     <h5>Anime Search</h5>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" aria-label="animeQuery" aria-describedby="inputGroup-sizing-default" placeholder="Search...">
+                                        <input type="text" class="form-control text-box" aria-label="animeQuery" aria-describedby="inputGroup-sizing-default" placeholder="Search...">
                                     </div>
-                                    <div v-for="item in myjson" :key="item.id" class="content">
+                                    <div v-for="item in myjson" :key="item.id" class="anime-cards">
                                         <AnimeCardAdder :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :score="item.mal_score" :image_url="item.image_url" :type="item.type"
                                         @add-entry="emitAddEntry"/>
                                     </div>    
@@ -123,9 +121,9 @@ export default {
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" @click="$emit('cancelEdit', listName, listItems)" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-danger" data-bs-target="#confirmationModal"  data-bs-toggle="modal">Delete</button>
-                        <button type="button" class="btn btn-primary" @click="$emit('saveChanges', listName, listItems)" data-bs-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-transparent" @click="$emit('cancelEdit', listName, listItems)" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger" data-bs-target="#confirmationModal"  data-bs-toggle="modal"><i class="bi bi-trash"></i> Delete</button>
+                        <button type="button" class="btn btn-primary" @click="$emit('saveChanges', listName, listItems)" data-bs-dismiss="modal"><i class="bi bi-save"></i> Save</button>
                     </div>
                 </div>
             </div>
@@ -138,11 +136,58 @@ export default {
 
 <style scoped>
 
-    .aniSearchBlock {
-        overflow: auto;
-    }
-    .listTable {
-        overflow: auto;
-    }
+.aniSearchBlock {
+    overflow: auto;
+}
+.listTable {
+    overflow: auto;
+}
+
+.modal-header {
+background-color: #130230;
+color: #FFFFFF
+}
+
+.modal-body {
+    background-color: #000021;
+    color:#fff
+}
+
+.text-box {
+    background-color: #000021;
+    color: #fff;
+}
+
+.anime-search {
+    padding-left: 8px;
+    padding-right: 8px; 
+}
+.anime-cards {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.modal-footer {
+    background-color: #130230;
+}
+
+.btn-transparent {
+    color: #fff;
+}
+
+.btn-transparent:hover {
+    color: #fff;
+    background-color: #3a2c5a;
+}
+
+.btn-primary {
+    background-color: #69b549;
+    border: #69b549;
+}
+
+.btn-primary:hover {
+    background-color: #368519;
+    border: #368519;
+}
 
 </style>
