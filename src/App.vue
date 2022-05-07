@@ -9,7 +9,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
+      <div id="topappbar" class="container-fluid" >
         <a class="navbar-brand" href="#">Anidex</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -45,3 +45,11 @@ import { RouterLink, RouterView } from 'vue-router'
     <RouterView />
   </div>
 </template>
+
+<style>
+  #topappbar{
+    margin_bottom: 50px
+  }
+  </style>
+
+

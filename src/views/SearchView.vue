@@ -1,14 +1,14 @@
 <script setup>
-import AnimeCard from '../components/AnimeCard.vue';
+import AnimeSearchCard from '../components/AnimeSearchCard.vue';
 import axios from 'axios'
 </script>
 
 <template>
-    <div id="search">
-      <div class="container">
-      <input class="form-control me-2" v-model="searchQuery" type="search" placeholder="Search" aria-label="Search">
+    <div id="search" class="min-vh-100">
+      <div class="container">      
         <div class="row">
             <div class="col-3">
+              <input class="form-control me-2" v-model="searchQuery" type="search" placeholder="Search" aria-label="Search">
                 <h5>Sort By</h5>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="scoreCheck">
@@ -52,9 +52,8 @@ import axios from 'axios'
             </div>        
         <div class="col-9">
           <div class="row gy-3">
-            <AnimeCard v-for="item in resultQuery" :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members"
-            :score="item.mal_score" :image_url="item.image_url" :episodes="item.episodes" :type="item.type" :synopsis="item.synopsis"
-            :position="myjson.indexOf(item)+1"/>
+            <AnimeSearchCard v-for="item in resultQuery" :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members"
+            :score="item.mal_score" :image_url="item.image_url" :episodes="item.episodes" :type="item.type" :synopsis="item.synopsis"/>
           </div>
         </div>
         </div>
