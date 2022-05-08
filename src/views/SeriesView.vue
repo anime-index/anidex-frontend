@@ -27,7 +27,7 @@ export default {
             <div class="col myfixed">
                 <img :src="mydata.image_url" class="myimg">
             </div>
-            <div class="col">
+            <div class="col" id="description">
                 <h3>{{mydata.title}}</h3>
                 <p>{{mydata.mal_score}}</p>
                 <p>{{format_number(mydata.popularity)}} members</p>
@@ -46,5 +46,8 @@ export default {
 .myimg {
     width: 185px;
     height: 265px;
+}
+#description{
+  color: white;
 }
 </style>

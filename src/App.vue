@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #35495e">
       <div id="topappbar" class="container-fluid" >
         <a class="navbar-brand" href="#">Anidex</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,9 +49,7 @@ import { RouterLink, RouterView } from 'vue-router'
           class="ydb_circle ydb_sitemap_toggle toggle"
           data-toggle="#ydb_sitemap_holder"
           data-linked="#footer_toggle_two"/>
-      <div
-          id="sitemap-desc"
-          class="text-center">Sitemap</div>
+
       <div id="ydb_sitemap_holder">
         <div
             id="footer_toggle_two"
@@ -140,11 +138,25 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style>
+.navbar{
+  background-color: #35495e;
+}
+
 .menu{
   display: flex;
 }
 .menu-item{
   display: block;
   margin-right: 20px;
+}
+#footer_sitemap{
+  background-color: #170439;
+}
+
+a {
+  color: #FFF;
+}
+a:hover {
+  color: #3e3e56
 }
 </style>
