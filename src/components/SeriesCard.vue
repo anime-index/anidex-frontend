@@ -15,7 +15,7 @@ defineProps({
 
 <template>
     <div class="col">
-        <div class="card mycard">
+        <div class="card mycard myfade">
             <span class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-success mybadge">#{{position}}</span>
             <div class="row">
                 <div class="col myfixed">
