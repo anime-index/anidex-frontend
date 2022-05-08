@@ -42,9 +42,9 @@ export default {
 </script>
 
 <template>
-<div class="container">
-  <div>
-    <RouterLink to="/top">TOP ANIME</RouterLink>
+<div class="container min-vh-100">
+  <div style="margin-top: 32px;">
+    <RouterLink to="/top/anime">TOP ANIME</RouterLink>
   </div>
 
   <div id="animeCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -85,7 +85,7 @@ export default {
     </button>
   </div>
 
-  <div>
+  <div style="margin-top: 32px;">
     <RouterLink to="/series">TOP SERIES</RouterLink>
   </div>
 

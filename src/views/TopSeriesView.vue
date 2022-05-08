@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-	<Navigation @callback="select_page" :page="page" :last_page="last_page"/>
+	<Navigation @callback="select_page" :page="page" :last_page="last_page" style="margin-top:16px;"/>
 
 	<div class="parent">
 		
@@ -53,7 +53,7 @@ export default {
 			<div v-if="!place_holder">
 				<div class="container">
 					<div class="row gy-3">
-						<SeriesCard v-for="item in myjson" :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
+						<SeriesCard class="series-card" v-for="item in myjson" :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
 						:score="item.score" :image_url="item.image_url" :episodes="item.episodes" :seasons="item.seasons" :synopsis="item.synopsis"
 						:position="item.position"/>
 					</div>
@@ -70,6 +70,7 @@ export default {
 .parent {
     display: grid;
     grid-template-columns: 1fr;
+	margin-bottom: 16px;
 }
 .mine {
     grid-row-start: 1;
@@ -80,5 +81,9 @@ export default {
 }
 .fade-enter-from, .fade-leave-to {
     opacity: 0;
+}
+
+.series-card {
+	color: white;
 }
 </style>

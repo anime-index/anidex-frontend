@@ -12,7 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <div id="topappbar" class="container-fluid" >
         <a class="navbar-brand" href="#">
           <RouterLink class="nav-link active" to="/">
-            <img class="homelogo" src="assets/anidex_logo.png" alt="Anidex" height="50" width="50">
+            <img class="homelogo" src="../assets/anidex_logo.png" alt="Anidex" height="32" width="32">
           </RouterLink>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,24 +21,24 @@ import { RouterLink, RouterView } from 'vue-router'
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                            <RouterLink class="nav-link active" to="/list">Lists</RouterLink>
+                            <RouterLink class="nav-link" to="/list">Lists</RouterLink>
             </li>
             <li class="nav-item">
-                            <RouterLink class="nav-link active" to="/search">Search Anime</RouterLink>
+                            <RouterLink class="nav-link" to="/search">Search Anime</RouterLink>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Top
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tops
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><RouterLink class="dropdown-item" to="/top/series">Top of Series</RouterLink></li>
-                <li><RouterLink class="dropdown-item" to="/top/anime">Top of Animes</RouterLink></li>
+                <li><RouterLink class="dropdown-item" to="/top/series">Top Series</RouterLink></li>
+                <li><RouterLink class="dropdown-item" to="/top/anime">Top Anime</RouterLink></li>
               </ul>
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input class="form-control me-2 home-search" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success btn-home-search" type="submit">Search</button>
           </form>
         </div>
       </div>
@@ -151,17 +151,31 @@ import { RouterLink, RouterView } from 'vue-router'
   margin-right: 20px;
 }
 #footer_sitemap{
-  background-color: #170439;
+  background-color: #35495e;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
 }
 
 a {
   color: #FFF;
 }
 a:hover {
-  color: #3e3e56
+  color: #9e9e9e
 }
 
 .homelogo{
-  ;
+  
+}
+
+.home-search {
+  background-color: #000021;
+}
+
+.home-search:focus {
+  background-color: #000021;
+  color: white;
 }
 </style>

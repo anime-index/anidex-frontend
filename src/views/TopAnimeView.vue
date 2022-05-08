@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <div class="container" style=color:white>
+    <div class="container top-anime">
         <div class="row">
             <div class="col-3">
                 <h5>Sort By</h5>
@@ -74,3 +74,11 @@ export default {
     </div>
   </div>
 </template>
+
+<style scoped>
+.top-anime {
+  color: white;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+</style>

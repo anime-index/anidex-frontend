@@ -13,5 +13,6 @@ import ListTabs from '../components/ListTabs.vue';
         background-color: #130230;
         padding: 0%;
         margin-top: 32px;
+        margin-bottom: 32px;
     }
 </style>

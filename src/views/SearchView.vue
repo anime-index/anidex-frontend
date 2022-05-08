@@ -4,7 +4,7 @@ import axios from 'axios'
 </script>
 
 <template>
-    <div id="search" class="min-vh-100" style=color:white>
+    <div id="search" class="min-vh-100">
       <div class="container">      
         <div class="row">
             <div class="col-3">
@@ -93,6 +93,12 @@ export default {
 </script>
 
 <style>
+#search {
+  color: white;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
 .mymargin {
   margin-top: 36px;
 }

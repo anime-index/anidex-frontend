@@ -16,7 +16,7 @@ defineProps({
 <template>
     <div class="col">
         <div class="card mycard">
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-warning">#{{position}}</span>
+            <span class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-success mybadge">#{{position}}</span>
             <div class="row">
                 <div class="col myfixed">
                     <img :src="image_url" class="myimg">
