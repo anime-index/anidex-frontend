@@ -99,7 +99,7 @@ export default {
     grid-column-start: 1;
 }
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 2;
+  transition: opacity 2s;
 }
 .fade-enter-from, .fade-leave-to {
     opacity: 0;
