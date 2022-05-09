@@ -12,7 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <div id="topappbar" class="container-fluid" >
         <a class="navbar-brand" href="#">
           <RouterLink class="nav-link active" to="/">
-            <img class="homelogo" src="../assets/anidex_logo.png" alt="Anidex" height="32" width="32">
+            <img class="homelogo" src="./assets/anidex_logo.png" alt="Anidex" height="32" width="32">
           </RouterLink>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
