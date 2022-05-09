@@ -45,4 +45,8 @@ export default {
 .list-body {
     border: #FFFFFF;
 }
+
+th::selection {
+    background: #3a2c5a;
+}
 </style>

@@ -17,6 +17,9 @@ defineProps({
 </template>
 
 <style scoped>
+label::selection {
+    background: #3a2c5a;
+}
 .form-range::-webkit-slider-runnable-track {
     background-color: #9886c2;
 }

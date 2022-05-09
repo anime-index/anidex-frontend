@@ -24,9 +24,9 @@ defineProps({
                 <div class="col">
                     <div class="card-body mybody">
                         <RouterLink :to="'/series/' + series_id"><h5 class="card-title">{{title}}</h5></RouterLink>
-                        <p class="card_text">{{score.toPrecision(3)}} | {{format_number(popularity)}} members | 
+                        <p class="card-text">{{score.toPrecision(3)}} | {{format_number(popularity)}} members | 
                             {{seasons}} season{{"s".repeat(seasons>1)}} | {{episodes}} episode{{"s".repeat(episodes>1)}}</p>
-                        <p class="card_text overfl">{{synopsis}}</p>
+                        <p class="card-text overfl">{{synopsis}}</p>
                     </div>
                 </div>
             </div>
@@ -38,6 +38,11 @@ defineProps({
 .mybadge {
     z-index: 1;
 }
+
+.mybadge::selection {
+    background: #3a2c5a;
+}
+
 .mycard {
     min-width: 360px;
 }

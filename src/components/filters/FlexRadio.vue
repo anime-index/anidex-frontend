@@ -17,3 +17,9 @@ defineProps({
         </div>
     </div>
 </template>
+
+<style scoped>
+label::selection {
+    background: #3a2c5a;
+}
+</style>

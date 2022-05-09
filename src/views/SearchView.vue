@@ -97,6 +97,7 @@ export default {
   color: white;
   margin-top: 32px;
   margin-bottom: 32px;
+  font-family: 'Montserrat';
 }
 
 .mymargin {

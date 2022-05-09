@@ -60,4 +60,12 @@ export default {
     color: #FFFFFF;
     border: #FFFFFF;
 }
+
+th::selection {
+    background: rgb(101, 82, 146);
+}
+
+td::selection {
+    background: rgb(101, 82, 146);
+}
 </style>

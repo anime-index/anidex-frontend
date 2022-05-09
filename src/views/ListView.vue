@@ -14,5 +14,6 @@ import ListTabs from '../components/ListTabs.vue';
         padding: 0%;
         margin-top: 32px;
         margin-bottom: 32px;
+        font-family: "Montserrat";
     }
 </style>

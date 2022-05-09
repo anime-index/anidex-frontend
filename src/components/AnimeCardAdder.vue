@@ -18,9 +18,10 @@ defineProps({
                 <div class="col mysmall">
                     <div class="card-body mybody">
                         <h5 class="card-title">{{title}}</h5>
-                        <p class="card_text">{{score.toPrecision(3)}} | {{type}}</p>
+                        <p class="card-text">{{score.toPrecision(3)}} | {{type}}</p>
                         <button type="button" class="btn add-btn shadow-none" @click="$emit('addEntry', this.title, 0, this.image_url, this.type)">
-                            <i class="bi bi-box-arrow-right"> Add</i>
+                            <i class="bi bi-box-arrow-right" id="anime-add"></i>
+                            <label for="anime-add" style="margin-left:4px">Add</label>
                         </button>
                     </div>
                 </div>
@@ -42,6 +43,7 @@ defineProps({
     width: 185px;
     height: 265px;
 }
+
 .mybody {
     padding: 8px 8px;
 }

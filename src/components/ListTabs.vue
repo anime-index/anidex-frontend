@@ -80,7 +80,8 @@ export default {
     <div class="container min-vh-100">
         <div class="row d-flex justify-content-end" style="background-color:#000021; margin:0;">
             <button type="button" class="btn shadow-none btn-edit" data-bs-toggle="modal" data-bs-target="#editMode" @click="editListAuxiliars">
-                <i class="bi bi-pencil-square"> Edit List</i>
+                <i class="bi bi-pencil-square" id="edit-icon"></i>
+                <label for="edit-icon" style="margin-left:8px">Edit List</label>
             </button>
         </div>
         <ListEditModal :list-name="currentTabName" :list-name-static="currentTabName" :list-items="currentTabAnimeList" 
@@ -93,7 +94,8 @@ export default {
             </li>
             <li class="nav-item nav-add-list">
                 <button id="add-list" type="button" class="btn shadow-none btn-list" data-bs-toggle="modal" data-bs-target="#listCreate">
-                    <i class="bi bi-file-earmark-plus"> New</i>
+                    <i class="bi bi-file-earmark-plus" id="add-list"></i>
+                    <label for="add-list" style="margin-left:4px">New</label>
                 </button>
                 <RenameModal :title="renameModalTitle" :placeholder="renameModalPlaceholder" :modalId="renameModalId" @rename-action="createList"></RenameModal>
             </li>
@@ -145,6 +147,9 @@ export default {
     border-radius: 0%;
 }
 
+.nav-link::selection {
+    background: #3a2c5a;
+}
 .nav-link:hover {
     color: #FFFFFF;
 }
@@ -152,4 +157,9 @@ export default {
 .nav-link.active:hover {
     color: #000000;
 }
+
+.nav-link.active::selection {
+    color: white;
+}
 </style>
+

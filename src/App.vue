@@ -61,7 +61,7 @@ import { RouterLink, RouterView } from 'vue-router'
           <div class="row content-holder">
             <div
                 id="footer-nav"
-                class="col-sm-24 nav">
+                class="col-sm-24 nav d-flex justify-content-center">
               <ul
                   id="menu-main-menu-2"
                   class="menu">
@@ -74,7 +74,7 @@ import { RouterLink, RouterView } from 'vue-router'
                   <RouterLink to="/">Profile</RouterLink>
                   <ul class="sub-menu">
                     <li class="menu-item">
-                      <RouterLink to="/lists">My Lists</RouterLink>
+                      <RouterLink to="/list">My Lists</RouterLink>
                     </li>
                     <li class="menu-item">
                       <RouterLink to="/">My Reviews</RouterLink>
@@ -108,10 +108,10 @@ import { RouterLink, RouterView } from 'vue-router'
                       <RouterLink to="/top/series">Top of Series</RouterLink>
                     </li>
                     <li class="menu-item">
-                      <RouterLink to="/top">Custom Top</RouterLink>
+                      <RouterLink to="/">Custom Top</RouterLink>
                     </li>
                     <li class="menu-item">
-                      <RouterLink to="/top">Top Recommendation</RouterLink>
+                      <RouterLink to="/">Top Recommendation</RouterLink>
                     </li>
                   </ul>
                 </li>
@@ -139,12 +139,29 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style>
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"), url(./fonts/montserrat/static/Montserrat-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-light";
+  src: local("Montserrat-light"), url(./fonts/montserrat/static/Montserrat-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-bold";
+  src: local("Montserrat-light"), url(./fonts/montserrat/static/Montserrat-Bold.ttf) format("truetype");
+}
+
 .navbar{
   background-color: #35495e;
+  font-family: "Montserrat";
 }
 
 .menu{
   display: flex;
+  margin-top: 16px;
 }
 .menu-item{
   display: block;
@@ -152,6 +169,12 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 #footer_sitemap{
   background-color: #35495e;
+  font-family: "Montserrat";
+}
+
+.sub-menu {
+  padding: 0%;
+  margin-top: 4px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -161,21 +184,36 @@ import { RouterLink, RouterView } from 'vue-router'
 
 a {
   color: #FFF;
+  font-family: "Montserrat";
+  text-decoration: none;
 }
 a:hover {
   color: #9e9e9e
 }
 
-.homelogo{
-  
+a::selection {
+  background: #3a2c5a;
+}
+
+.sub-menu li a {
+  font-family: "Montserrat-light";
+}
+
+.homelogo::selection{
+  background: #3a2c5a;
 }
 
 .home-search {
   background-color: #000021;
+  color: #9e9e9e;
 }
 
 .home-search:focus {
   background-color: #000021;
   color: white;
+}
+
+.home-search::selection {
+  background: #3a2c5a;
 }
 </style>

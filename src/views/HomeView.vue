@@ -44,7 +44,7 @@ export default {
 <template>
 <div class="container min-vh-100">
   <div style="margin-top: 32px;">
-    <RouterLink to="/top/anime">TOP ANIME</RouterLink>
+    <RouterLink to="/top/anime" class="carousel-title">TOP ANIME</RouterLink>
   </div>
 
   <div id="animeCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -86,7 +86,7 @@ export default {
   </div>
 
   <div style="margin-top: 32px;">
-    <RouterLink to="/series">TOP SERIES</RouterLink>
+    <RouterLink to="/series" class="carousel-title">TOP SERIES</RouterLink>
   </div>
 
   <div id="seriesCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -142,6 +142,10 @@ export default {
     flex: 0 0 33.333333%;
     display: block;
   }
+}
+
+.carousel-title::selection {
+  background: #3a2c5a;
 }
 
 .carousel-inner{

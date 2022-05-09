@@ -163,6 +163,10 @@ background-color: #130230;
 color: #FFFFFF
 }
 
+h5::selection {
+    background: #3a2c5a;
+}
+
 .modal-body {
     background-color: #000021;
     color:#fff
@@ -171,6 +175,10 @@ color: #FFFFFF
 .text-box {
     background-color: #000021;
     color: #fff;
+}
+
+.text-box::selection {
+    background: #3a2c5a;
 }
 
 .anime-search {

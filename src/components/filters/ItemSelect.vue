@@ -17,12 +17,16 @@ defineProps({
 </template>
 
 <style scoped>
+
+label::selection {
+    background: #3a2c5a;
+}
 .form-select {
     background-color: #000021;
     color: #fff
 }
 
-option:hover {
-    background-color: #3a2c5a;
+.form-select::selection {
+    background: #3a2c5a;
 }
 </style>
