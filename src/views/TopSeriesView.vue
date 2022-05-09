@@ -3,7 +3,7 @@ import SeriesCard from '../components/SeriesCard.vue'
 import Navigation from '../components/Navigation.vue'
 import axios from 'axios'
 import SeriesPlaceholder from '../components/SeriesPlaceholder.vue'
-//import { Popover } from 'bootstrap/dist/js/bootstrap.min.js'
+import { Popover } from 'bootstrap/dist/js/bootstrap.min.js'
 </script>
 
 <script>
@@ -31,18 +31,18 @@ export default {
 	},
 	mounted() {
 		this.select_page(0)
-        /*var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
         console.log(popoverTriggerList)
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
             return new Popover(popoverTriggerEl, {html: true, delay: {hide: 5000}, continer: 'body'})
-        })*/
+        })
 	}
 }
 </script>
 
 <template>
 
-	<!--p>
+	<p>
 		<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 			What is a Series?
 		</button>
@@ -52,7 +52,7 @@ export default {
 			A Series correspond to the entire Anime Series. It has multiple seasons associated to it in cronological order.
 			If you want to see Anime seasons separated, check instead <RouterLink class="dropdown-item" to="/top/anime">Top of Animes</RouterLink>
 		</div>
-	</div-->
+	</div>
 
 	<Navigation @callback="select_page" :page="page" :last_page="last_page"/>
 
@@ -98,7 +98,7 @@ export default {
     grid-column-start: 1;
 }
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 2;
+  transition: opacity 2s;
 }
 .fade-enter-from, .fade-leave-to {
     opacity: 0;
