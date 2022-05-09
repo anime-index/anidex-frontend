@@ -7,7 +7,7 @@ import axios from 'axios'
     <div id="search" class="min-vh-100">
       <div class="container">      
         <div class="row">
-            <div class="col-3">
+            <div class="col-2">
               <input class="form-control me-2" v-model="searchQuery" type="search" placeholder="Search" aria-label="Search">
                 <h5>Sort By</h5>
                 <div class="form-check">

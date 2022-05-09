@@ -38,6 +38,7 @@ defineProps({
 <style>
 .mycard {
     min-width: 360px;
+    background-color: #130230;
 }
 
 .myfixed {
