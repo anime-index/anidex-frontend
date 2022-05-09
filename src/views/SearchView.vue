@@ -8,8 +8,8 @@ import axios from 'axios'
       <div class="container">      
         <div class="row">
             <div class="col-2">
-              <input class="form-control me-2" v-model="searchQuery" type="search" placeholder="Search" aria-label="Search">
-                <h5>Sort By</h5>
+              <input class="form-control me-2 search-text-box shadow-none" v-model="searchQuery" type="search" placeholder="Search" aria-label="Search">
+                <h5 style="margin-top: 16px;">Sort By</h5>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="scoreCheck">
                   <label class="form-check-label" for="scoreCheck">
@@ -28,8 +28,8 @@ import axios from 'axios'
                     Date
                   </label>
                 </div>
-                <h5>Filters</h5>
-                <h6>Type</h6>
+                <h5 style="margin-top: 16px;">Filters</h5>
+                <h6 style="margin-top: 8px;">Type</h6>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="tvCheck" value="option1">
                   <label class="form-check-label" for="inlineCheckbox1">TV</label>
@@ -42,13 +42,6 @@ import axios from 'axios'
                   <input class="form-check-input" type="checkbox" id="specialCheck" value="option3">
                   <label class="form-check-label" for="inlineCheckbox3">Special</label>
                 </div>
-                <h6>Genre</h6>
-                <select class="form-select" aria-label="genreSelect">
-                  <option selected>-</option>
-                  <option value="1">Action</option>
-                  <option value="2">Comedy</option>
-                  <option value="3">Drama</option>
-                </select>
             </div>        
         <div class="col-9">
           <div class="row gy-3">
@@ -102,6 +95,20 @@ export default {
 
 .mymargin {
   margin-top: 36px;
+}
+
+.search-text-box {
+  background-color: #000021;
+  color: #fff;
+}
+
+.search-text-box:focus {
+  background-color: #000021;
+  color: #fff;
+}
+
+.search-text-box::selection {
+    background: #3a2c5a;
 }
 </style>
 

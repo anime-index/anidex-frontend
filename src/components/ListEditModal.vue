@@ -107,8 +107,8 @@ export default {
                                 <input v-model="listName" type="text" class="form-control text-box" aria-label="listNameInput" aria-describedby="input-edit"
                                 placeholder="List Name">
                             </div>
-                            <div class="row">
-                                <div class="col">
+                            <div class="row" style="margin-top: 32px;">
+                                <div class="col-3" style="margin-right: 32px; ">
                                     <h5>Filters</h5>
                                     <NumericRange :rangeId="yearRangeData.rangeId" :labelText="yearRangeData.labelText"
                                         :minValue="yearRangeData.minValue" :maxValue="yearRangeData.maxValue" :rangeStep="yearRangeData.rangeStep"></NumericRange>
@@ -118,7 +118,7 @@ export default {
                                         :minValue="scoreRangeData.minValue" :maxValue="scoreRangeData.maxValue" :rangeStep="scoreRangeData.rangeStep"></NumericRange>
                                     <FlexRadio style="margin-top:8px;" :flexRadioId="statusRadioData.flexRadioId" :flexRadioLabelText="statusRadioData.flexRadioLabelText" :selections="statusRadioData.selections"></FlexRadio>
                                 </div>
-                                <div class="col anime-search">
+                                <div class="col anime-search" style="margin-right: 32px;">
                                     <h5>Anime Search</h5>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control text-box" v-model="searchQuery" aria-label="animeQuery" aria-describedby="inputGroup-sizing-default" placeholder="Search...">
@@ -151,9 +151,6 @@ export default {
 
 <style scoped>
 
-.aniSearchBlock {
-    overflow: auto;
-}
 .listTable {
     overflow: auto;
 }
@@ -169,12 +166,13 @@ h5::selection {
 
 .modal-body {
     background-color: #000021;
-    color:#fff
+    color:#fff;
 }
 
 .text-box {
     background-color: #000021;
     color: #fff;
+    margin-top: 24px;
 }
 
 .text-box::selection {
@@ -183,7 +181,9 @@ h5::selection {
 
 .anime-search {
     padding-left: 8px;
-    padding-right: 8px; 
+    padding-right: 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .anime-cards {
     padding-top: 8px;

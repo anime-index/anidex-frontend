@@ -29,9 +29,9 @@ import { RouterLink, RouterView } from 'vue-router'
             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Tops
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><RouterLink class="dropdown-item" to="/top/series">Top Series</RouterLink></li>
-              <li><RouterLink class="dropdown-item" to="/top/anime">Top Anime</RouterLink></li>
+            <ul class="dropdown-menu nav-dropdown-tops" aria-labelledby="navbarDropdown">
+              <li><RouterLink class="dropdown-item dropdown-tops" to="/top/series">Top Series</RouterLink></li>
+              <li><RouterLink class="dropdown-item dropdown-tops" to="/top/anime">Top Anime</RouterLink></li>
             </ul>
           </li>
         </ul>
@@ -178,6 +178,25 @@ import { RouterLink, RouterView } from 'vue-router'
 .dropdown:hover .dropdown-menu {
   display: block;
   margin-top: 0;
+}
+
+.nav-dropdown-tops {
+  background-color: #000021;
+  border-color: white;
+}
+
+.dropdown-tops {
+  color: #9e9e9e;
+}
+
+.dropdown-tops:hover {
+  color: #9e9e9e;
+  background-color: #3a2c5a;
+}
+
+.dropdown-tops::selection {
+  color: #9e9e9e;
+  background-color: #3a2c5a;
 }
 
 a {
