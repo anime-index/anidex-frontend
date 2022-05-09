@@ -39,7 +39,7 @@ export default {
      <tr class="list-row">
       <th scope="row">{{position}}</th>
       <td v-for="column in columns" :key="columns.indexOf(column)">{{getColumnData(column)}}</td>
-      <td><button class="btn btn-transparent" @click="$emit('removeEntry', this.position)"><i class="bi bi-x-circle" style=""></i></button></td>
+      <td><button class="btn btn-transparent shadow-none" @click="$emit('removeEntry', this.position)"><i class="bi bi-x-circle" style=""></i></button></td>
     </tr>
 </template>
 

@@ -128,7 +128,7 @@ export default {
                                         @add-entry="emitAddEntry"/>
                                     </div>    
                                 </div>
-                                <div class="col">
+                                <div class="col list-table">
                                     <h5>Your List</h5>
                                     <AnimeTableEdit :columns="animeTableColumns" :items="listItems" @remove-entry="emitRemoveEntry"/>
                                 </div>
@@ -151,8 +151,9 @@ export default {
 
 <style scoped>
 
-.listTable {
-    overflow: auto;
+.list-table {
+    overflow-y: auto;
+    max-height: 1000px;
 }
 
 .modal-header {
@@ -183,7 +184,7 @@ h5::selection {
     padding-left: 8px;
     padding-right: 8px;
     overflow-y: auto;
-    overflow-x: hidden;
+    max-height: 1000px;
 }
 .anime-cards {
     padding-top: 8px;
