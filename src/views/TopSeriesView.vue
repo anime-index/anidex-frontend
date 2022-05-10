@@ -42,15 +42,16 @@ export default {
 <template>
 
 	<div>
-		<p>
-			<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+		<p style="margin-bottom: 0;">
+			<button class="btn btn-series-explain shadow-none" type="button" data-bs-toggle="collapse" 
+			data-bs-target="#collapse-series-explain" aria-expanded="false" aria-controls="collapseExample">
 				What is a Series?
 			</button>
 		</p>
-		<div class="collapse" id="collapseExample">
-			<div class="card card-body">
+		<div class="collapse" id="collapse-series-explain">
+			<div class="card card-body series-explanation">
 				A Series correspond to the entire Anime Series. It has multiple seasons associated to it in cronological order.
-				If you want to see Anime seasons separated, check instead <RouterLink class="dropdown-item" to="/top/anime">Top of Animes</RouterLink>
+				If you want to see Anime seasons separated, check instead <RouterLink class="dropdown-item goto-tops-anime" to="/top/anime">Top Anime</RouterLink>
 			</div>
 		</div>
 	</div>
@@ -111,5 +112,38 @@ export default {
 }
 .popover {
     left: -300px !important;
+}
+
+.btn-series-explain {
+    color: #FFFFFF;
+	margin-left: 16px;
+	margin-top: 16px;
+	font-family: 'Montserrat';
+}
+
+.btn-series-explain:hover {
+    background: #3a2c5a;
+	color: #FFFFFF;
+}
+
+.series-explanation {
+	background-color: #000021;
+	color: white;
+	font-family: 'Montserrat';
+	padding-left: 32px;
+}
+
+.series-explanation::selection {
+	background: #3a2c5a;
+	color: white;
+}
+
+.goto-tops-anime {
+	color: rgb(196, 194, 194);
+}
+
+.goto-tops-anime:hover {
+	background-color: #3a2c5a;
+	color: rgb(196, 194, 194);
 }
 </style>
