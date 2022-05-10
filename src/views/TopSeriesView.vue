@@ -19,7 +19,7 @@ export default {
 	methods: {
 		select_page(page) {
 			axios
-				.get('http://127.0.0.1:8000/top/series?page=' + page)
+				.get(this.backendUrl + 'top/series/' + page)
 				.then(response => {
 					this.place_holder = false
 					this.myjson = response.data.lst

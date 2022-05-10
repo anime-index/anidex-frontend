@@ -11,3 +11,9 @@ app.use(router)
 app.use(VueAxios, axios)
 
 app.mount('#app')
+
+const url = {'localhost': 'http://127.0.0.1:8000/',     //Local host
+             'localtunnel': 'https://anidex.loca.lt/',  //Localtunnel redirection
+             'deta': 'https://anidex.deta.dev/'}         //Data deployment
+
+app.config.globalProperties.backendUrl = url['localhost']

@@ -17,10 +17,10 @@ export default {
   mounted () {
 
     axios
-        .get('http://127.0.0.1:8000/top/anime')
+        .get(this.backendUrl + 'top/anime')
         .then(response => (this.top_a_json = response.data)) //response => (this.info = response);
     axios
-        .get('http://127.0.0.1:8000/top/series')
+        .get(this.backendUrl + 'top/series/0')
         .then(response => (this.top_s_json = response.data.lst))
   },
   computed: {
@@ -86,7 +86,7 @@ export default {
   </div>
 
   <div style="margin-top: 32px;">
-    <RouterLink to="/series" class="carousel-title">TOP SERIES</RouterLink>
+    <RouterLink to="/top/series" class="carousel-title">TOP SERIES</RouterLink>
   </div>
 
   <div id="seriesCarousel" class="carousel slide" data-bs-ride="carousel">

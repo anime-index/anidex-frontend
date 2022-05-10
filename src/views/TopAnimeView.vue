@@ -13,7 +13,7 @@ export default {
   },
   mounted () {
     axios
-      .get('http://127.0.0.1:8000/top/anime')
+      .get(this.backendUrl + 'top/anime')
       .then(response => (this.myjson = response.data)) //response => (this.info = response)
   }
 }
