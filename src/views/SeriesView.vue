@@ -15,7 +15,7 @@ export default {
     },
     mounted () {
         axios
-            .get('https://weak-women-poke-79-153-2-171.loca.lt/series/' + this.id)
+            .get(this.backendUrl + 'series/' + this.id)
             .then(response => (this.mydata = response.data)) //response => (this.info = response)
   }
 }
