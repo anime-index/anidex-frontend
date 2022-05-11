@@ -186,9 +186,49 @@ h5::selection {
     overflow-y: auto;
     max-height: 1000px;
 }
+
+.anime-search::-webkit-scrollbar {
+    width: 10px;
+}
+
+.anime-search::-webkit-scrollbar-track {
+    background: #0f023b;
+}
+
+.anime-search::-webkit-scrollbar-thumb {
+    background: #3a2c5a;
+}
+
+.anime-search::-webkit-scrollbar-thumb:hover {
+    background: #2c2047;
+}
+
+.anime-search::-webkit-scrollbar-corner {
+    background: #21005700;
+}
 .anime-cards {
     padding-top: 8px;
     padding-bottom: 8px;
+}
+
+.list-table::-webkit-scrollbar {
+    width: 10px;
+}
+
+.list-table::-webkit-scrollbar-track {
+    background: #0f023b;
+}
+
+.list-table::-webkit-scrollbar-thumb {
+    background: #3a2c5a;
+}
+
+.list-table::-webkit-scrollbar-thumb:hover {
+    background: #2c2047;
+}
+
+.list-table::-webkit-scrollbar-corner {
+    background: #21005700;
 }
 
 .modal-footer {

@@ -1,56 +1,29 @@
 <script setup>
 import AnimeSearchCard from '../components/AnimeSearchCard.vue';
+import FiltersCanvas from '../components/FiltersCanvas.vue'
 import axios from 'axios'
 </script>
 
 <template>
     <div id="search" class="min-vh-100">
+      <div class="sticky-top">
+          <a class="btn btn-filters shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-canvas" aria-controlls="offcanvas-filters">
+            <i class="bi bi-filter-left" id="filters-icon"></i>
+            <label for="filters-icon" style="margin-left:8px">Filters</label>
+          </a>
+        </div>
+      <FiltersCanvas :canvas-head="'Filters'" @query-search="_resultQuery"/>
       <div class="container">      
-        <div class="row">
-            <div class="col-2">
-              <input class="form-control me-2 search-text-box shadow-none" v-model="searchQuery" type="search" placeholder="Search" aria-label="Search">
-                <h5 style="margin-top: 16px;">Sort By</h5>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="scoreCheck">
-                  <label class="form-check-label" for="scoreCheck">
-                    Score
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="popularityCheck" disabled>
-                  <label class="form-check-label" for="popularityCheck">
-                    Popularity
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="dateCheck" disabled>
-                  <label class="form-check-label" for="dateCheck">
-                    Date
-                  </label>
-                </div>
-                <h5 style="margin-top: 16px;">Filters</h5>
-                <h6 style="margin-top: 8px;">Type</h6>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="tvCheck" value="option1">
-                  <label class="form-check-label" for="inlineCheckbox1">TV</label>
-                  </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="movieCheck" value="option2">
-                  <label class="form-check-label" for="inlineCheckbox2">Movie</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="specialCheck" value="option3">
-                  <label class="form-check-label" for="inlineCheckbox3">Special</label>
-                </div>
-            </div>        
-        <div class="col-9">
-          <div class="row gy-3">
-            <AnimeSearchCard v-for="item in resultQuery" :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members"
-            :score="item.mal_score" :image_url="item.image_url" :episodes="item.episodes" :type="item.type" :synopsis="item.synopsis"/>
+        <div class="row">      
+          <div class="col">
+            <div class="row gy-3">
+              <AnimeSearchCard v-for="item in resultQuery" :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members"
+              :score="item.mal_score" :image_url="item.image_url" :episodes="item.episodes" :type="item.type" :synopsis="item.synopsis"/>
+            </div>
           </div>
         </div>
-        </div>
-  </div>
+        
+      </div>
     </div>
 </template>
 
@@ -68,6 +41,11 @@ export default {
       .get(this.backendUrl + 'top/anime')
       .then(response => (this.myjson = response.data)) //response => (this.info = response);        
   },
+  methods: {
+        _resultQuery(_search) {
+          this.searchQuery = _search
+        }
+    },
   computed: {
     resultQuery(){
       if (this.searchQuery) {
@@ -109,6 +87,15 @@ export default {
 
 .search-text-box::selection {
     background: #3a2c5a;
+}
+
+.btn-filters {
+    color: rgba(255, 255, 255, 0.568)
+}
+
+.btn-filters:hover {
+    background: #3a2c5a;
+    color: white
 }
 </style>
 
