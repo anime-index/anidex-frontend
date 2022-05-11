@@ -13,7 +13,8 @@ export default {
 			page: 0,
 			last_page: 0,
 			place_holder: true,
-			myjson: []
+			myjson: [],
+			failed: false
 		}
 	},
 	methods: {
@@ -21,25 +22,38 @@ export default {
 			axios
 				.get(this.backendUrl + 'top/series/' + page)
 				.then(response => {
+					this.failed = false
 					this.place_holder = false
 					this.myjson = response.data.lst
 					this.page = response.data.page
 					this.last_page = response.data.last_page
 				})
+				.catch(() => {
+					this.failed = true
+					console.log('Reloading with page' + page)
+					setTimeout(this.select_page.bind(null, page), 1000)
+				})
             window.scrollTo(0, 0)
+		},
+		timeou() {
+			console.log('Was the timeout???')
 		}
 	},
 	mounted() {
 		this.select_page(0)
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new Popover(popoverTriggerEl, {html: true, delay: {hide: 5000}, continer: 'body'})
-        })
 	}
 }
 </script>
 
 <template>
+
+	<div v-if="failed" class="mytext">
+		<h5>Yikes! The backend is down</h5>
+		<p>If you want to run it locally check: <a href='https://github.com/anime-index/anidex-backend'>Anidex Backend</a></p>
+		<p>This page will keep reloading till it goes back up!</p>
+	</div>
+
+	<div v-else>
 
 	<div>
 		<p style="margin-bottom: 0;">
@@ -62,7 +76,7 @@ export default {
 		
         <Transition name="fade" class="mine">
 			<div v-if="place_holder">
-				<span data-bs-toggle="popover" data-bs-trigger="hover focus"
+				<span id="backend-popover" data-bs-toggle="popover" data-bs-trigger="hover focus"
 				data-bs-title="Ups! The backend is down"
 				data-bs-content="Please go to <a href='https://github.com/anime-index/anidex-backend'>Anidex Backend">
 					<div class="container">
@@ -88,9 +102,15 @@ export default {
 	</div>
 
 	<Navigation @callback="select_page" :page="page" :last_page="last_page"/>
+
+	</div>
 </template>
 
 <style>
+.mytext {
+	color: white;
+	margin: 20px;
+}
 .parent {
     display: grid;
     grid-template-columns: 1fr;

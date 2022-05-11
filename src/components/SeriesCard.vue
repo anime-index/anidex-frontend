@@ -45,6 +45,7 @@ defineProps({
 
 .mycard {
     min-width: 360px;
+    background-color: #130230;
 }
 .myfixed {
     flex: 0 0 185px;
@@ -53,6 +54,9 @@ defineProps({
     transition: transform 0.5s;
     width: 185px;
     height: 265px;
+}
+.myimg::selection {
+    background: #3a2c5a;
 }
 .myimg:hover {
     transform: scale(1.05);
@@ -66,5 +70,16 @@ defineProps({
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+}
+.card-title::selection {
+    background: #3a2c5a;
+}
+
+.card-text {
+    font-family: 'Montserrat-light';
+}
+
+.card-text::selection {
+    background: #3a2c5a;
 }
 </style>
