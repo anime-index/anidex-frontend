@@ -1,6 +1,5 @@
 <script setup>
 import SelectGroup from './filters/SelectGroup.vue'
-import SelectGroupInLine from './filters/SelectGroupInLine.vue'
 defineProps ({
     canvasHead: String
 })
