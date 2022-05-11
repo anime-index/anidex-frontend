@@ -6,6 +6,10 @@ defineProps({
     hasTitle: {
         type: Boolean,
         default: true
+    },
+    inLine: {
+        type: Boolean,
+        default: false
     }
 })
 </script>
@@ -24,7 +28,7 @@ export default {
 <template>
     <div>
         <h6 v-if="this.hasTitle" id="groupTitle">{{this.groupName}}</h6>
-        <div v-for="item in this.selections" class="form-check" :key="item.id">
+        <div v-for="item in this.selections" class="form-check" :class="{'form-check-inline': inLine}" :key="item.id">
             <input class="form-check-input" type="checkbox" :value="item.id" :id="item.id">
             <label class="form-check-label" for="flexCheckDefault">
                 {{item.label}}

@@ -60,8 +60,8 @@ export default {
                 <SelectGroup :group-id="this.sortData.sortId" :selections="sortData.sortSelections" :has-title="false"></SelectGroup>
                 <h5 style="margin-top: 24px;">Filters</h5>
                 <SelectGroup :group-id="this.genreData.sortId" :group-name="genreData.sortName" :selections="genreData.sortSelections" style="margin-top: 16px;"></SelectGroup>
-                <SelectGroupInLine :group-id="this.typeData.sortId" :group-name="typeData.sortName" 
-                :selections="typeData.sortSelections" style="margin-top: 16px;"></SelectGroupInLine>
+                <SelectGroup :group-id="this.typeData.sortId" :group-name="typeData.sortName" 
+                :selections="typeData.sortSelections" :in-line="true" style="margin-top: 16px;"></SelectGroup>
             </div>  
         </div>
     </div>
