@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation.vue'
 import axios from 'axios'
 import SeriesPlaceholder from '../components/SeriesPlaceholder.vue'
 import { Popover } from 'bootstrap/dist/js/bootstrap.min.js'
+import FiltersCanvas from '../components/FiltersCanvas.vue'
 </script>
 
 <script>
@@ -68,7 +69,17 @@ export default {
 				If you want to see Anime seasons separated, check instead <RouterLink class="dropdown-item goto-tops-anime" to="/top/anime">Top Anime</RouterLink>
 			</div>
 		</div>
+		<div id="topseries">
+			<div class="sticky-top">
+				<a class="btn btn-filters shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-canvas" aria-controlls="offcanvas-filters">
+				<i class="bi bi-filter-left" id="filters-icon"></i>
+				<label for="filters-icon" style="margin-left:8px">Filters</label>
+				</a>
+			</div>
+		</div>
 	</div>
+
+	<FiltersCanvas :canvas-head="'Filters'" @query-search="_resultQuery"/>
 
 	<Navigation @callback="select_page" :page="page" :last_page="last_page" style="margin-top:16px;"/>
 
@@ -107,6 +118,21 @@ export default {
 </template>
 
 <style>
+#topseries {
+  color: white;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  font-family: 'Montserrat';
+}
+.btn-filters {
+    color: rgba(255, 255, 255, 0.568)
+}
+
+.btn-filters:hover {
+    background: #3a2c5a;
+    color: white
+}
+
 .mytext {
 	color: white;
 	margin: 20px;
