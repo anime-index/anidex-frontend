@@ -47,7 +47,15 @@ export default {
     <RouterLink to="/top/anime" class="carousel-title">TOP ANIME</RouterLink>
   </div>
 
-  <div id="animeCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="row d-block top-anime-row">
+      <div  v-for="item in this.top_a_json.slice(0, 10)" class="d-inline-block w-50" :key="item.mal_id">
+          <AnimeCard :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members"
+                :score="item.mal_score" :image_url="item.image_url" :episodes="item.episodes" :type="item.type" :synopsis="item.synopsis"
+                :position="top_a_json.indexOf(item)+1" style="white-space: normal; margin-top: 16px; margin-bottom: 16px; margin-left: 8px; color: white;"/>
+      </div>
+  </div>
+
+  <!--div id="animeCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <AnimeCard class="anime-card" v-for="item in top_a_json.slice(0,1)" :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members"
@@ -83,13 +91,21 @@ export default {
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  </div>
+  </div-->
 
   <div style="margin-top: 32px;">
     <RouterLink to="/top/series" class="carousel-title">TOP SERIES</RouterLink>
   </div>
 
-  <div id="seriesCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="row d-block top-anime-row">
+      <div  v-for="item in this.top_s_json.slice(0, 10)" class="d-inline-block w-50" :key="item.series_id">
+          <SeriesCard class="serie-card" :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
+                    :score="item.score" :image_url="item.image_url" :episodes="item.episodes" :seasons="item.seasons" :synopsis="item.synopsis"
+                    :position="item.position" style="white-space: normal; margin-top: 16px; margin-bottom: 16px; margin-left: 8px;"/>
+      </div>
+  </div>
+
+  <!--div id="seriesCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner" v-if="top_s_json.length > 0">
       <div class="carousel-item active">
         <SeriesCard class="serie-card" v-for="item in top_s_json.slice(0,1)" :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
@@ -125,7 +141,7 @@ export default {
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  </div>
+  </div-->
 
 </div>
 
@@ -172,6 +188,31 @@ export default {
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.top-anime-row {
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+.top-anime-row::-webkit-scrollbar {
+    width: 10px;
+}
+
+.top-anime-row::-webkit-scrollbar-track {
+    background: #0f023b;
+}
+
+.top-anime-row::-webkit-scrollbar-thumb {
+    background: #3a2c5a;
+}
+
+.top-anime-row::-webkit-scrollbar-thumb:hover {
+    background: #2c2047;
+}
+
+.top-anime-row::-webkit-scrollbar-corner {
+    background: #21005700;
 }
 </style>
 

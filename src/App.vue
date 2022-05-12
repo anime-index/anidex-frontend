@@ -21,6 +21,9 @@ import { RouterLink, RouterView } from 'vue-router'
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
+                            <RouterLink class="nav-link" to="/">Home</RouterLink>
+            </li>
+            <li class="nav-item">
                             <RouterLink class="nav-link" to="/list">Lists</RouterLink>
             </li>
             <li class="nav-item">
@@ -37,7 +40,7 @@ import { RouterLink, RouterView } from 'vue-router'
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2 home-search" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2 home-search" type="search" placeholder="Titles, characters ..." aria-label="Search">
             <button class="btn btn-outline-success btn-home-search" type="submit">Search</button>
           </form>
         </div>
@@ -176,6 +179,7 @@ import { RouterLink, RouterView } from 'vue-router'
 .navbar{
   background-color: #35495e;
   font-family: "Montserrat";
+  font-size: large;
 }
 
 .menu{
