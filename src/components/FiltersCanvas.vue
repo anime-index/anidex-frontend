@@ -1,7 +1,8 @@
 <script setup>
 import SelectGroup from './filters/SelectGroup.vue'
 defineProps ({
-    canvasHead: String
+    canvasHead: String,
+    hideSearch: Boolean
 })
 </script>
 
@@ -12,9 +13,10 @@ export default {
             sortData: {
                 sortId: 'sort-select',
                 sortSelections: [
-                    {id: 'score', label: 'Score'},
-                    {id: 'popularity', label: 'Popularity'},
-                    {id: 'airdate', label: 'Air Date'},
+                    {id: 'score', label: 'Score', selected: true},
+                    {id: 'popularity', label: 'Popularity', selected: true},
+                    {id: 'airdate', label: 'Air Date', selected: false},
+                    {id: 'episodes', label: 'Number of Episodes', selected: false}
                 ]
             },
 
@@ -22,9 +24,9 @@ export default {
                 sortId: 'genre-select',
                 sortName: 'Genres',
                 sortSelections: [
-                    {id: 'action', label: 'Action'},
-                    {id: 'comedy', label: 'Comedy'},
-                    {id: 'drama', label: 'Drama'},
+                    {id: 'action', label: 'Action', selected: false},
+                    {id: 'comedy', label: 'Comedy', selected: false},
+                    {id: 'drama', label: 'Drama', selected: false},
                 ]
             },
 
@@ -32,13 +34,19 @@ export default {
                 sortId: 'type-select',
                 sortName: 'Type',
                 sortSelections: [
-                    {id: 'tv', label: 'TV'},
-                    {id: 'movie', label: 'Movie'},
-                    {id: 'special', label: 'Special'},
+                    {id: 'tv', label: 'TV', selected: false},
+                    {id: 'movie', label: 'Movie', selected: false},
+                    {id: 'special', label: 'Special', selected: false},
                 ]
             },
 
             searchText: ""
+        }
+    },
+    methods: {
+        mycallback(change) {
+            console.log('internal callback')
+            this.$emit('callback', change)
         }
     }
 }
@@ -53,13 +61,13 @@ export default {
         </div>
         <div class="offcanvas-body">
             <div class="container">
-              <input class="form-control me-2 search-text-box shadow-none" type="search" placeholder="Search" aria-label="Search"
+              <input v-if="!hideSearch" class="form-control me-2 search-text-box shadow-none" type="search" placeholder="Search" aria-label="Search"
               v-model="searchText" @input="$emit('querySearch', searchText)">
-                <h5 style="margin-top: 16px;">Sort By</h5>
-                <SelectGroup :group-id="this.sortData.sortId" :selections="sortData.sortSelections" :has-title="false"></SelectGroup>
+                <h5 v-if="hideSearch" style="margin-top: 16px;">Sort By</h5>
+                <SelectGroup v-if="hideSearch" @callback="mycallback" :group-id="this.sortData.sortId" :selections="sortData.sortSelections" :has-title="false"></SelectGroup>
                 <h5 style="margin-top: 24px;">Filters</h5>
-                <SelectGroup :group-id="this.genreData.sortId" :group-name="genreData.sortName" :selections="genreData.sortSelections" style="margin-top: 16px;"></SelectGroup>
-                <SelectGroup :group-id="this.typeData.sortId" :group-name="typeData.sortName" 
+                <SelectGroup @callback="mycallback" :group-id="this.genreData.sortId" :group-name="genreData.sortName" :selections="genreData.sortSelections" style="margin-top: 16px;"></SelectGroup>
+                <SelectGroup v-if="!hideSearch" @callback="mycallback" :group-id="this.typeData.sortId" :group-name="typeData.sortName" 
                 :selections="typeData.sortSelections" :in-line="true" style="margin-top: 16px;"></SelectGroup>
             </div>  
         </div>
@@ -69,13 +77,16 @@ export default {
 <style scoped>
     .offcanvas-header {
         background-color: #130230;
+        color: white;
     }
 
     .offcanvas-body {
         background-color: #000021;
+        color: white;
     }
 
     h5::selection {
         background: #3a2c5a;
     }
+    
 </style>

@@ -1,36 +1,33 @@
 <script setup>
+import SeriesCard from '../components/SeriesCard.vue'
+import Navigation from '../components/Navigation.vue'
 import axios from 'axios'
+import SeriesPlaceholder from '../components/SeriesPlaceholder.vue'
 import FiltersCanvas from '../components/FiltersCanvas.vue'
-import Result from '../components/Result.vue'
+
+defineProps({
+    data_json: Object,
+    page: Number,
+    last_page: Number,
+	status: String
+})
 </script>
 
 <script>
 export default {
-	data() {
-		return {
-			page: 0,
-			last_page: 0,
-      status: 'loading',
-			myjson: [],
-			sort_score: true,
-			sort_popularity: true,
-			sort_date: false,
-			sort_episodes: false
-		}
-	},
 	methods: {
 		select_page(page) {
-			var url = this.backendUrl + 'top/anime?page=' + page;
+			var url = this.backendUrl + 'top/series?page=' + page;
 			if (this.sort_score || this.sort_popularity || this.sort_date || this.sort_episodes) {
 				let props = []
 				if (this.sort_score) {
-					props.push('mal_score')
+					props.push('score')
 				}
 				if (this.sort_popularity) {
-					props.push('mal_members')
+					props.push('popularity')
 				}
 				if (this.sort_date) {
-					props.push('aired_start')
+					props.push('date')
 				}
 				if (this.sort_episodes) {
 					props.push('episodes')
@@ -43,13 +40,14 @@ export default {
 			axios
 				.get(url)
 				.then(response => {
-          this.status = 'normal'
+					this.failed = false
+					this.place_holder = false
 					this.myjson = response.data.lst
 					this.page = response.data.page
 					this.last_page = response.data.last_page
 				})
 				.catch(() => {
-          this.status = 'failed'
+					this.failed = true
 					setTimeout(this.select_page.bind(null, page), 1000)
 				})
             window.scrollTo(0, 0)
@@ -82,7 +80,7 @@ export default {
           </a>
         </div>
 
-	<div v-if="status==='failed'" class="mytext min-vh-100">
+	<div v-if="failed" class="mytext min-vh-100">
 		<h5>Yikes! The backend is down</h5>
 		<p>If you want to run it locally check: <a href='https://github.com/anime-index/anidex-backend'>Anidex Backend</a></p>
 		<p>This page will keep reloading till it goes back up!</p>
@@ -90,16 +88,59 @@ export default {
 
 	<div v-else>
 
+	<div>
+		<p style="margin-top: -200;">
+			<button class="btn btn-series-explain shadow-none" type="button" data-bs-toggle="collapse" 
+			data-bs-target="#collapse-series-explain" aria-expanded="false" aria-controls="collapseExample">
+				What is a Series?
+			</button>
+		</p>
+		<div class="collapse" id="collapse-series-explain">
+			<div class="card card-body series-explanation">
+				A Series correspond to the entire Anime Series. It has multiple seasons associated to it in cronological order.
+				If you want to see Anime seasons separated, check instead <RouterLink class="dropdown-item goto-tops-anime" to="/top/anime">Top Anime</RouterLink>
+			</div>
+		</div>
+
+	</div>
+
 	<FiltersCanvas @callback="mycallback" :canvas-head="'Custom Sort'" :hide-search="true"/>
 
-  <Result :data-json="myjson" :page="page" :last-page="last_page" :status="status" :type="'anime'" @last-callback="select_page" :order="true"/>
+	<Navigation @callback="select_page" :page="page" :last_page="last_page" style="margin-top:16px;"/>
+
+	<div class="parent">
+		
+        <Transition name="fade" class="mine">
+			<div v-if="place_holder">
+				<div class="container">
+					<div class="row gy-3">
+						<SeriesPlaceholder v-for="i in 30" :key="i"/>
+					</div>
+				</div>
+			</div>
+        </Transition>
+
+        <Transition name="fade" class="mine">
+			<div v-if="!place_holder" :key="page">
+				<div class="container">
+					<div class="row gy-3">
+						<SeriesCard class="series-card" v-for="item in myjson" :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
+						:score="item.score" :image_url="item.image_url" :episodes="item.episodes" :seasons="item.seasons" :synopsis="item.synopsis"
+						:position="item.position" :date="item.date.slice(0, 4)"/>
+					</div>
+				</div>
+			</div>
+        </Transition>
+	</div>
+
+	<Navigation @callback="select_page" :page="page" :last_page="last_page"/>
 
 	</div>
 	</div>
 </template>
 
 <style>
-#topanime {
+#topseries {
   color: white;
   margin-top: 32px;
   margin-bottom: 32px;
@@ -134,40 +175,40 @@ export default {
     opacity: 0;
 }
 
-.anime-card {
+.series-card {
 	color: white;
 }
 
-.btn-anime-explain {
+.btn-series-explain {
     color: #FFFFFF;
 	margin-left: 16px;
 	margin-top: 16px;
 	font-family: 'Montserrat';
 }
 
-.btn-anime-explain:hover {
+.btn-series-explain:hover {
     background: #3a2c5a;
 	color: #FFFFFF;
 }
 
-.anime-explanation {
+.series-explanation {
 	background-color: #000021;
 	color: white;
 	font-family: 'Montserrat';
 	padding-left: 32px;
 }
 
-.anime-explanation::selection {
+.series-explanation::selection {
 	background: #3a2c5a;
 	color: white;
 }
-</style>
 
-<style scoped>
-.top-anime {
-  color: white;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  font-family: 'Montserrat';
+.goto-tops-anime {
+	color: rgb(196, 194, 194);
+}
+
+.goto-tops-anime:hover {
+	background-color: #3a2c5a;
+	color: rgb(196, 194, 194);
 }
 </style>

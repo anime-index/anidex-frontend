@@ -1,10 +1,7 @@
 <script setup>
-import SeriesCard from '../components/SeriesCard.vue'
-import Navigation from '../components/Navigation.vue'
 import axios from 'axios'
-import SeriesPlaceholder from '../components/SeriesPlaceholder.vue'
-import { Popover } from 'bootstrap/dist/js/bootstrap.min.js'
 import FiltersCanvas from '../components/FiltersCanvas.vue'
+import Result from '../components/Result.vue'
 </script>
 
 <script>
@@ -13,31 +10,61 @@ export default {
 		return {
 			page: 0,
 			last_page: 0,
-			place_holder: true,
 			myjson: [],
-			failed: false
+			status: 'loading',
+
+			sort_score: true,
+			sort_popularity: true,
+			sort_date: false,
+			sort_episodes: false
 		}
 	},
 	methods: {
 		select_page(page) {
+			var url = this.backendUrl + 'top/series?page=' + page;
+			if (this.sort_score || this.sort_popularity || this.sort_date || this.sort_episodes) {
+				let props = []
+				if (this.sort_score) {
+					props.push('score')
+				}
+				if (this.sort_popularity) {
+					props.push('popularity')
+				}
+				if (this.sort_date) {
+					props.push('date')
+				}
+				if (this.sort_episodes) {
+					props.push('episodes')
+				}
+				url += '&sort_by=' + props.join(',')
+			}
+			else {
+				url += '&sort_by=None'
+			}
 			axios
-				.get(this.backendUrl + 'top/series/' + page)
+				.get(url)
 				.then(response => {
-					this.failed = false
-					this.place_holder = false
+					this.status = 'normal'
 					this.myjson = response.data.lst
 					this.page = response.data.page
 					this.last_page = response.data.last_page
 				})
 				.catch(() => {
-					this.failed = true
-					console.log('Reloading with page' + page)
+					this.status = 'failed'
 					setTimeout(this.select_page.bind(null, page), 1000)
 				})
             window.scrollTo(0, 0)
 		},
-		timeou() {
-			console.log('Was the timeout???')
+		mycallback(attr) {
+			if (attr === 'score')
+				this.sort_score = !this.sort_score
+			if (attr === 'popularity')
+				this.sort_popularity = !this.sort_popularity
+			if (attr === 'airdate')
+				this.sort_date = !this.sort_date
+			if (attr === 'episodes')
+				this.sort_episodes = !this.sort_episodes
+			this.select_page(0)
 		}
 	},
 	mounted() {
@@ -48,7 +75,15 @@ export default {
 
 <template>
 
-	<div v-if="failed" class="mytext">
+    <div id="search" class="min-vh-100">
+      <!--div class="sticky-top">
+          <a class="btn btn-filters shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-canvas" aria-controlls="offcanvas-filters">
+            <i class="bi bi-filter-left" id="filters-icon"></i>
+            <label for="filters-icon" style="margin-left:8px">Custom Sort</label>
+          </a>
+        </div-->
+
+	<div v-if="status==='failed'" class="mytext min-vh-100">
 		<h5>Yikes! The backend is down</h5>
 		<p>If you want to run it locally check: <a href='https://github.com/anime-index/anidex-backend'>Anidex Backend</a></p>
 		<p>This page will keep reloading till it goes back up!</p>
@@ -69,51 +104,14 @@ export default {
 				If you want to see Anime seasons separated, check instead <RouterLink class="dropdown-item goto-tops-anime" to="/top/anime">Top Anime</RouterLink>
 			</div>
 		</div>
-		<div id="topseries">
-			<div class="sticky-top">
-				<a class="btn btn-filters shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-canvas" aria-controlls="offcanvas-filters">
-				<i class="bi bi-filter-left" id="filters-icon"></i>
-				<label for="filters-icon" style="margin-left:8px">Filters</label>
-				</a>
-			</div>
-		</div>
+
 	</div>
 
-	<FiltersCanvas :canvas-head="'Filters'" @query-search="_resultQuery"/>
+	<FiltersCanvas @callback="mycallback" :canvas-head="'Custom Sort'" :hide-search="true"/>
 
-	<Navigation @callback="select_page" :page="page" :last_page="last_page" style="margin-top:16px;"/>
+	<Result :data-json="myjson" :page="page" :last-page="last_page" :status="status" :type="'series'" @last-callback="select_page" :order="true"/>
 
-	<div class="parent">
-		
-        <Transition name="fade" class="mine">
-			<div v-if="place_holder">
-				<span id="backend-popover" data-bs-toggle="popover" data-bs-trigger="hover focus"
-				data-bs-title="Ups! The backend is down"
-				data-bs-content="Please go to <a href='https://github.com/anime-index/anidex-backend'>Anidex Backend">
-					<div class="container">
-						<div class="row gy-3">
-							<SeriesPlaceholder v-for="i in 30" :key="i"/>
-						</div>
-					</div>
-				</span>
-			</div>
-        </Transition>
-
-        <Transition name="fade" class="mine">
-			<div v-if="!place_holder" :key="page">
-				<div class="container">
-					<div class="row gy-3">
-						<SeriesCard class="series-card" v-for="item in myjson" :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
-						:score="item.score" :image_url="item.image_url" :episodes="item.episodes" :seasons="item.seasons" :synopsis="item.synopsis"
-						:position="item.position"/>
-					</div>
-				</div>
-			</div>
-        </Transition>
 	</div>
-
-	<Navigation @callback="select_page" :page="page" :last_page="last_page"/>
-
 	</div>
 </template>
 
@@ -137,27 +135,9 @@ export default {
 	color: white;
 	margin: 20px;
 }
-.parent {
-    display: grid;
-    grid-template-columns: 1fr;
-	margin-bottom: 16px;
-}
-.mine {
-    grid-row-start: 1;
-    grid-column-start: 1;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 2s;
-}
-.fade-enter-from, .fade-leave-to {
-    opacity: 0;
-}
 
 .series-card {
 	color: white;
-}
-.popover {
-    left: -300px !important;
 }
 
 .btn-series-explain {

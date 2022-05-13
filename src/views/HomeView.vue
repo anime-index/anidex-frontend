@@ -18,9 +18,9 @@ export default {
 
     axios
         .get(this.backendUrl + 'top/anime')
-        .then(response => (this.top_a_json = response.data)) //response => (this.info = response);
+        .then(response => (this.top_a_json = response.data.lst))
     axios
-        .get(this.backendUrl + 'top/series/0')
+        .get(this.backendUrl + 'top/series')
         .then(response => (this.top_s_json = response.data.lst))
   },
   computed: {

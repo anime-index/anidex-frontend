@@ -71,7 +71,7 @@ export default {
     mounted() {
         axios
             .get(this.backendUrl + 'top/anime')
-            .then(response => (this.myjson = response.data)) //response => (this.info = response)
+            .then(response => this.myjson = response.data.lst)
     },
     computed: {
         resultQuery(){
