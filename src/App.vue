@@ -12,7 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <div id="topappbar" class="container-fluid" >
         <a class="navbar-brand" href="#">
           <RouterLink class="nav-link active" to="/">
-            <img class="homelogo" src="./assets/anidex_logo.png" alt="Anidex" height="32" width="32">
+            <img class="homelogo" src="./assets/anidex_logo.png" alt="Anidex" height="48" width="48">
           </RouterLink>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@ import { RouterLink, RouterView } from 'vue-router'
                             <RouterLink class="nav-link" to="/">Home</RouterLink>
             </li>
             <li class="nav-item">
-                            <RouterLink class="nav-link" to="/list">Lists</RouterLink>
+                            <RouterLink class="nav-link" to="/list">My Lists</RouterLink>
             </li>
             <li class="nav-item">
                             <RouterLink class="nav-link" to="/search">Search Anime</RouterLink>
@@ -158,6 +158,11 @@ import { RouterLink, RouterView } from 'vue-router'
   src: local("Montserrat-light"), url(./fonts/montserrat/static/Montserrat-Bold.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "Esteban";
+  src: local("Esteban"), url(./fonts/Esteban-Regular.ttf) format("truetype");
+}
+
 @media screen and (max-width:600px) {
   #footer-nav {
     font-size: xx-small;
@@ -179,7 +184,7 @@ import { RouterLink, RouterView } from 'vue-router'
 .navbar{
   background-color: #35495e;
   font-family: "Montserrat";
-  font-size: large;
+  font-size: larger;
 }
 
 .menu{

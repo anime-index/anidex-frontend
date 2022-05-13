@@ -57,6 +57,7 @@ export default {
 	<div v-else>
 
 	<div>
+		<h1>Top Series</h1>
 		<p style="margin-bottom: 0;">
 			<button class="btn btn-series-explain shadow-none" type="button" data-bs-toggle="collapse" 
 			data-bs-target="#collapse-series-explain" aria-expanded="false" aria-controls="collapseExample">
@@ -118,6 +119,14 @@ export default {
 </template>
 
 <style>
+
+h1 {
+  font-family: 'Esteban';
+  text-align: center;
+  color: white;
+  margin-top: 32px;
+}
+
 #topseries {
   color: white;
   margin-top: 32px;

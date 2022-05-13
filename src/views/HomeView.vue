@@ -160,6 +160,11 @@ export default {
   }
 }
 
+.carousel-title {
+  font-family: 'Montserrat-Bold';
+  font-size: x-large
+}
+
 .carousel-title::selection {
   background: #3a2c5a;
 }

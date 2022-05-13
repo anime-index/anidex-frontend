@@ -20,6 +20,8 @@ export default {
 </script>
 
 <template>
+  <div>
+    <h1>Top Anime</h1>
     <div class="container top-anime">
         <div class="row">
             <div class="col-3">
@@ -71,6 +73,7 @@ export default {
                   :position="myjson.indexOf(item)+1"/>
               </div>
             </div>
+        </div>
     </div>
   </div>
 </template>
@@ -81,5 +84,12 @@ export default {
   margin-top: 16px;
   margin-bottom: 16px;
   font-family: 'Montserrat';
+}
+
+h1 {
+  font-family: 'Esteban';
+  text-align: center;
+  color: white;
+  margin-top: 32px;
 }
 </style>

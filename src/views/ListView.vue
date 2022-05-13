@@ -3,8 +3,11 @@ import ListTabs from '../components/ListTabs.vue';
 </script>
 
 <template>
-    <div class="container">
-        <ListTabs/>
+    <div>
+        <h1>My Lists</h1>
+            <div class="container">
+            <ListTabs/>
+        </div>
     </div>
 </template>
 
@@ -15,5 +18,12 @@ import ListTabs from '../components/ListTabs.vue';
         margin-top: 32px;
         margin-bottom: 32px;
         font-family: "Montserrat";
+    }
+
+    h1 {
+        font-family: 'Esteban';
+        text-align: center;
+        color: white;
+        margin-top: 32px;
     }
 </style>

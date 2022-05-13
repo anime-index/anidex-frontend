@@ -6,6 +6,7 @@ import axios from 'axios'
 
 <template>
     <div id="search" class="min-vh-100">
+      <h1>Search Anime</h1>
       <div class="sticky-top">
           <a class="btn btn-filters shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-canvas" aria-controlls="offcanvas-filters">
             <i class="bi bi-filter-left" id="filters-icon"></i>
@@ -64,6 +65,14 @@ export default {
 </script>
 
 <style>
+
+h1 {
+  font-family: 'Esteban';
+  text-align: center;
+  color: white;
+  margin-top: 32px;
+}
+
 #search {
   color: white;
   margin-top: 32px;
@@ -90,7 +99,8 @@ export default {
 }
 
 .btn-filters {
-    color: rgba(255, 255, 255, 0.568)
+    color: white;
+    font-size: large;
 }
 
 .btn-filters:hover {
