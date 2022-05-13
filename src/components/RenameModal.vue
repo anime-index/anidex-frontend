@@ -10,7 +10,17 @@ defineProps({
 export default {
     data() {
         return {
-            newName: ""
+            newName: "",
+            inputError: false
+        }
+    },
+    methods: {
+        createList() {
+            if (this.newName === "") {
+                this.inputError = true
+            } else {
+                this.$emit('renameAction', this.newName)
+            }
         }
     }
 }
@@ -28,12 +38,13 @@ export default {
                 <div class="modal-body">
                     <div class="input-group allign-middle">
                         <input v-model="newName" type="text" class="form-control text-box shadow-none" :aria-label="modalId+'Input'" aria-describedby="rename-modal"
-                        @keyup.enter="$emit('renameAction', newName)" :placeholder="placeholder">
+                        @input="inputError = false" @keyup.enter="createList" :placeholder="placeholder">
                     </div>
+                    <p class="input-error" v-if="this.inputError">You have to write a name for your list!</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-transparent shadow-none" data-bs-dismiss="modal" id="dismiss">Cancel</button>
-                    <button type="button" class="btn btn-primary shadow-none" @click="$emit('renameAction', newName)">Create</button>
+                    <button type="button" class="btn btn-primary shadow-none" @click="createList">Create</button>
                 </div>
             </div>
         </div>
@@ -76,4 +87,12 @@ export default {
     background-color: #368519;
     border: #368519;
 }
+
+.input-error {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: #CF6679;
+}
+
+
 </style>

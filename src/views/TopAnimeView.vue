@@ -170,4 +170,11 @@ export default {
   margin-bottom: 16px;
   font-family: 'Montserrat';
 }
+
+h1 {
+  font-family: 'Esteban';
+  text-align: center;
+  color: white;
+  margin-top: 32px;
+}
 </style>

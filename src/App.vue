@@ -12,7 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <div id="topappbar" class="container-fluid" >
         <a class="navbar-brand" href="#">
           <RouterLink class="nav-link active" to="/">
-            <img class="homelogo" src="./assets/anidex_logo.png" alt="Anidex" height="32" width="32">
+            <img class="homelogo" src="./assets/anidex_logo.png" alt="Anidex" height="48" width="48">
           </RouterLink>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,10 @@ import { RouterLink, RouterView } from 'vue-router'
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                            <RouterLink class="nav-link" to="/list">Lists</RouterLink>
+                            <RouterLink class="nav-link" to="/">Home</RouterLink>
+            </li>
+            <li class="nav-item">
+                            <RouterLink class="nav-link" to="/list">My Lists</RouterLink>
             </li>
             <li class="nav-item">
                             <RouterLink class="nav-link" to="/search">Search Anime</RouterLink>
@@ -37,7 +40,7 @@ import { RouterLink, RouterView } from 'vue-router'
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2 home-search" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2 home-search" type="search" placeholder="Titles, characters ..." aria-label="Search">
             <button class="btn btn-outline-success btn-home-search" type="submit">Search</button>
           </form>
         </div>
@@ -155,6 +158,11 @@ import { RouterLink, RouterView } from 'vue-router'
   src: local("Montserrat-light"), url(./fonts/montserrat/static/Montserrat-Bold.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "Esteban";
+  src: local("Esteban"), url(./fonts/Esteban-Regular.ttf) format("truetype");
+}
+
 @media screen and (max-width:600px) {
   #footer-nav {
     font-size: xx-small;
@@ -176,6 +184,7 @@ import { RouterLink, RouterView } from 'vue-router'
 .navbar{
   background-color: #35495e;
   font-family: "Montserrat";
+  font-size: larger;
 }
 
 .menu{

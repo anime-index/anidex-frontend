@@ -83,6 +83,14 @@ export default {
 </template>
 
 <style>
+
+h1 {
+  font-family: 'Esteban';
+  text-align: center;
+  color: white;
+  margin-top: 32px;
+}
+
 #search {
   color: white;
   margin-top: 32px;
@@ -109,7 +117,8 @@ export default {
 }
 
 .btn-filters {
-    color: rgba(255, 255, 255, 0.568)
+    color: white;
+    font-size: large;
 }
 
 .btn-filters:hover {
