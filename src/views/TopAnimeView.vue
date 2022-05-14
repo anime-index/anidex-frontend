@@ -108,6 +108,13 @@ export default {
 
 #search .parent-grid { margin-top: 50px; }
 
+#search {
+  color: white;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  font-family: 'Montserrat';
+}
+
 .btn-filters {
     color: rgba(255, 255, 255, 0.568)
 }
