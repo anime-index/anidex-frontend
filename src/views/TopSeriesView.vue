@@ -94,7 +94,7 @@ export default {
 	<div>
 		<h1>Top Series</h1>
 		<p style="margin-bottom: 0;">
-			<button class="btn btn-series-explain shadow-none" type="button" data-bs-toggle="collapse" 
+			<button class="btn btn-series-explain shadow-none" type="button" data-bs-toggle="collapse"
 			data-bs-target="#collapse-series-explain" aria-expanded="false" aria-controls="collapseExample">
 				What is a Series?
 			</button>
@@ -147,7 +147,15 @@ h1 {
 
 .series-card {
 	color: white;
+  margin: 0 0.5em;
+  box-shadow: 2px 6px 8px 0 rgb(22 22 26 / 18%);
+  border: none;
+  margin-bottom: 2.5em;
 }
+
+
+#search .parent-grid { margin-top: 50px; }
+
 
 .btn-series-explain {
     color: #FFFFFF;

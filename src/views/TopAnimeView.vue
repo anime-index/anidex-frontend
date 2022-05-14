@@ -105,6 +105,9 @@ export default {
   margin-bottom: 32px;
   font-family: 'Montserrat';
 }
+
+#search .parent-grid { margin-top: 50px; }
+
 .btn-filters {
     color: rgba(255, 255, 255, 0.568)
 }
@@ -135,7 +138,11 @@ export default {
 }
 
 .anime-card {
-	color: white;
+  color: white;
+  margin: 0 0.5em;
+  box-shadow: 2px 6px 8px 0 rgb(22 22 26 / 18%);
+  border: none;
+  margin-bottom: 2.5em;
 }
 
 .btn-anime-explain {
@@ -177,4 +184,6 @@ h1 {
   color: white;
   margin-top: 32px;
 }
+
+
 </style>
