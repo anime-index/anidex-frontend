@@ -29,9 +29,9 @@ defineProps({
                         <p class="card-text">{{score.toPrecision(3)}} | {{format_number(popularity)}} members | 
                             {{type}} | {{episodes}} episode{{"s".repeat(episodes>1)}}</p>
                         <p class="card-text overfl">{{synopsis}}</p>
-                        <p class="badge badge-primary">{{genres[0]["name"]}}</p>
-                        <p class="badge badge-primary">{{genres[1]["name"]}}</p>
-                        <p class="badge badge-primary">{{genres[2]["name"]}}</p>                        
+                        <p v-if="genres.length>=1" class="badge badge-primary">{{genres[0]["name"]}}</p>
+                        <p v-if="genres.length>=2" class="badge badge-primary">{{genres[1]["name"]}}</p>
+                        <p v-if="genres.length>=3" class="badge badge-primary">{{genres[2]["name"]}}</p>                        
                     </div>                    
                 </div>
             </div>
