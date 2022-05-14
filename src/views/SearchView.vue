@@ -98,6 +98,8 @@ h1 {
   font-family: 'Montserrat';
 }
 
+#search .parent-grid { margin-top: 50px; }
+
 .mymargin {
   margin-top: 36px;
 }
@@ -124,6 +126,13 @@ h1 {
 .btn-filters:hover {
     background: #3a2c5a;
     color: white
+}
+.anime-card {
+  color: white;
+  margin: 0 0.5em;
+  box-shadow: 2px 6px 8px 0 rgb(22 22 26 / 18%);
+  border: none;
+  margin-bottom: 2.5em;
 }
 </style>
 
