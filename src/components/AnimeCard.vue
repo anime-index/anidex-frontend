@@ -10,7 +10,8 @@ defineProps({
     type: String,
     synopsis: String,
     position: Number,
-    order: Boolean
+    order: Boolean,
+    genres: Object
 })
 </script>
 
@@ -28,9 +29,11 @@ defineProps({
                         <p class="card-text">{{score.toPrecision(3)}} | {{format_number(popularity)}} members | 
                             {{type}} | {{episodes}} episode{{"s".repeat(episodes>1)}}</p>
                         <p class="card-text overfl">{{synopsis}}</p>
-                    </div>
+                        <p class="badge badge-primary">{{genres[0]["name"]}}</p>
+                        <p class="badge badge-primary">{{genres[1]["name"]}}</p>
+                        <p class="badge badge-primary">{{genres[2]["name"]}}</p>                        
+                    </div>                    
                 </div>
-
             </div>
         </div>
     </div>

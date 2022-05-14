@@ -51,7 +51,7 @@ export default {
       <div  v-for="item in this.top_a_json.slice(0, 10)" class="d-inline-block w-50" :key="item.mal_id">
           <AnimeCard :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members"
                 :score="item.mal_score" :image_url="item.image_url" :episodes="item.episodes" :type="item.type" :synopsis="item.synopsis"
-                :position="top_a_json.indexOf(item)+1" style="white-space: normal; margin-top: 16px; margin-bottom: 16px; margin-left: 8px; color: white;"/>
+                :position="top_a_json.indexOf(item)+1" :genres="item.genres" style="white-space: normal; margin-top: 16px; margin-bottom: 16px; margin-left: 8px; color: white;"/>
       </div>
   </div>
 

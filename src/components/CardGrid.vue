@@ -32,7 +32,7 @@ defineProps({
 					<template v-else-if="status==='normal' && type=='anime'">
 						<AnimeCard v-for="item in dataJson" class="anime-card" :key="item.mal_id" :anime_id="item.mal_id"
 						:title="item.title" :popularity="item.mal_members" :score="item.mal_score" :image_url="item.image_url"
-						:episodes="item.episodes" :type="item.type" :synopsis="item.synopsis" :position="item.position"
+						:episodes="item.episodes" :type="item.type" :synopsis="item.synopsis" :genres="item.genres" :position="item.position"
 						:date="item.start_date" :order="order"/>
 					</template>
 
