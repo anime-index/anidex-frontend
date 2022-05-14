@@ -70,6 +70,7 @@ export default {
 
 <template>
     <div id="search" class="min-vh-100">
+      <h1>Search Anime</h1>
       <div class="sticky-top">
           <a class="btn btn-filters shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-canvas" aria-controlls="offcanvas-filters">
             <i class="bi bi-filter-left" id="filters-icon"></i>

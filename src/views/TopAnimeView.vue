@@ -75,6 +75,7 @@ export default {
 <template>
 
     <div id="search" class="min-vh-100">
+		<h1>Top Anime</h1>
       <div class="sticky-top">
           <a class="btn btn-filters shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-canvas" aria-controlls="offcanvas-filters">
             <i class="bi bi-filter-left" id="filters-icon"></i>
@@ -99,6 +100,14 @@ export default {
 </template>
 
 <style>
+
+h1 {
+  font-family: 'Esteban';
+  text-align: center;
+  color: white;
+  margin-top: 32px;
+}
+
 #topanime {
   color: white;
   margin-top: 32px;
