@@ -62,7 +62,7 @@ import { RouterLink, RouterView } from 'vue-router'
             class="ydb_circle ydb_sitemap_toggle toggle"
             data-toggle="#ydb_sitemap_holder"
             data-linked="#footer_toggle_one"/>
-        <div class="container-fluid">
+        <div class="container">
           <div class="row content-holder">
             <div
                 id="footer-nav"
@@ -278,7 +278,7 @@ a.router-link-active.router-link-exact-active.nav-link {
 #menu-main-menu-2 {
   display: flex;
   margin-top: 16px;
-  justify-content: center;
+  justify-content: space-around;
 }
 #footer-nav {
   display: initial;
