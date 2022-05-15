@@ -57,15 +57,13 @@ export default {
 
 <template>
 
-  <div id="search">
+  <h1>Search Anime</h1>
 
-    <StickyButton :title="'Filters'"/>
+  <StickyButton :title="'Filters'"/>
 
-    <FiltersCanvas :canvas-head="'Filters'" @query-search="_resultQuery" @callback="mycallback"/>
+  <FiltersCanvas :canvas-head="'Filters'" @query-search="_resultQuery" @callback="mycallback"/>
 
-    <Result ref="myresult" :type="'anime'" @last-callback="select_page" :order="false"/>
-
-  </div>
+  <Result ref="myresult" :type="'anime'" @last-callback="select_page" :order="false"/>
 
 </template>
 
@@ -76,27 +74,5 @@ h1 {
   color: white;
   margin-top: 32px;
 }
-
-#search {
-  color: white;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  font-family: 'Montserrat';
-}
-
-.search-text-box {
-  background-color: #000021;
-  color: #fff;
-}
-
-.search-text-box:focus {
-  background-color: #000021;
-  color: #fff;
-}
-
-.search-text-box::selection {
-    background: #3a2c5a;
-}
-
 </style>
 

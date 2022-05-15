@@ -33,8 +33,8 @@ import { RouterLink, RouterView } from 'vue-router'
               Tops
             </a>
             <ul class="dropdown-menu nav-dropdown-tops" aria-labelledby="navbarDropdown">
-              <li><RouterLink class="dropdown-item dropdown-tops" to="/top/series">Top Series</RouterLink></li>
-              <li><RouterLink class="dropdown-item dropdown-tops" to="/top/anime">Top Anime</RouterLink></li>
+              <li><RouterLink class="nav-item dropdown-item dropdown-tops" to="/top/series">Top Series</RouterLink></li>
+              <li><RouterLink class="nav-item dropdown-item dropdown-tops" to="/top/anime">Top Anime</RouterLink></li>
             </ul>
           </li>
         </ul>
@@ -137,8 +137,9 @@ import { RouterLink, RouterView } from 'vue-router'
       </div>
     </div>
   </div>
-  
+
 </template>
+
 
 <style>
 @font-face {
@@ -240,6 +241,11 @@ a::selection {
   background: #3a2c5a;
 }
 
+a.router-link-active.router-link-exact-active.nav-link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 .sub-menu li a {
   font-family: "Montserrat-light";
 }
@@ -261,4 +267,18 @@ a::selection {
 .home-search::selection {
   background: #3a2c5a;
 }
+
+#menu-main-menu-2 {
+  display: flex;
+  margin-top: 16px;
+  justify-content: space-around;
+}
+#footer-nav {
+  display: initial;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
 </style>

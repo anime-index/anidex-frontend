@@ -1,10 +1,15 @@
 .mycard {
     min-width: 360px;
     background-color: #130230;
-    color: white
+    color: white;
+    height: 265px;
+    box-shadow: 2px 6px 8px 0 rgb(22 22 26 / 18%);
+    border: none;
 }
 .myfixed {
     flex: 0 0 185px;
+    width: 185px;
+    height: 265px;
 }
 .myimg {
     transition: transform 0.5s;
@@ -25,7 +30,7 @@
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 .mybody {
-    padding: 8px 8px;
+    padding: 8px 16px; /*y, x*/
 }
 .overfl {
     overflow: hidden;
@@ -42,6 +47,12 @@
 .card-text::selection {
     background: #3a2c5a;
 }
-.mybody {
-    padding: 8px 8px;
+span.position-absolute.top-0.start-0.translate-middle.badge.rounded-circle.bg-success.mybadge {
+  font-size: 17px;
+}
+.tit {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }

@@ -58,6 +58,8 @@ export default {
 
 <template>
 
+	<h1>Top Anime</h1>
+
 	<StickyButton :title="'Custom Sort'"/>
 
 	<FiltersCanvas @callback="mycallback" :canvas-head="'Custom Sort'" :hide-search="true"/>
@@ -72,17 +74,5 @@ h1 {
   text-align: center;
   color: white;
   margin-top: 32px;
-}
-#topanime {
-  color: white;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  font-family: 'Montserrat';
-}
-.top-anime {
-  color: white;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  font-family: 'Montserrat';
 }
 </style>

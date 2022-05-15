@@ -54,7 +54,7 @@ export default {
 
 
 <template>
-    <div class="offcanvas offcanvas-start mycanva" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="filters-canvas" aria-labelledby="offcanvas-filters">
+    <div class="offcanvas offcanvas-start mycanva" data-bs-scroll="true" tabindex="-1" id="filters-canvas" aria-labelledby="offcanvas-filters">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvas-filters">{{canvasHead}}</h5>
             <button type="button" class="btn-close text-reset shadow-none btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -87,6 +87,20 @@ export default {
     color: white;
 }
 h5::selection {
+    background: #3a2c5a;
+}
+
+.search-text-box {
+  background-color: #000021;
+  color: #fff;
+}
+
+.search-text-box:focus {
+  background-color: #000021;
+  color: #fff;
+}
+
+.search-text-box::selection {
     background: #3a2c5a;
 }
 </style>

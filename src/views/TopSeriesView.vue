@@ -47,24 +47,25 @@ export default {
 
 <template>
 
-	<StickyButton :title="'Custom Sort'"/>
+	<h1>Top Series <a href="#" data-toggle="tooltip" title="What is a Series?">
+		<i class="bi bi-question-circle" style="font-size:25px; vertical-align: middle;" data-bs-toggle="collapse"
+				data-bs-target="#collapse-series-explain" aria-expanded="false" aria-controls="collapseExample"></i>
+		</a></h1>
 
-	<div>
-		<h1>Top Series</h1>
-		<p style="margin-bottom: 0;">
-			<button class="btn btn-series-explain shadow-none" type="button" data-bs-toggle="collapse"
-				data-bs-target="#collapse-series-explain" aria-expanded="false" aria-controls="collapseExample">
-				What is a Series?
-			</button>
-		</p>
-		<div class="collapse" id="collapse-series-explain">
-			<div class="card card-body series-explanation">
-				A Series correspond to the entire Anime Series. It has multiple seasons associated to it in cronological order.
-				If you want to see Anime seasons separated, check instead <RouterLink class="dropdown-item goto-tops-anime" to="/top/anime">Top Anime</RouterLink>
-			</div>
+	<div class="collapse" id="collapse-series-explain" style="margin-left: 15vw; margin-right: 15vw;">
+		<div class="card card-body series-explanation">
+			<p>
+				A Series is a group of Animes, which are either single Seasons, Movies or Specials.
+				By grouping by Series instead of Animes we can have more useful information of the entire Series,
+				avoiding overrated final seasons or overpopular first seasons.
+				If you want to see Animes, check instead:
+				<RouterLink style="display: inline;" class="goto-tops-anime" to="/top/anime">Top Anime</RouterLink>
+			</p>
+			
 		</div>
-
 	</div>
+
+	<StickyButton :title="'Custom Sort'"/>
 
 	<FiltersCanvas @callback="mycallback" :canvas-head="'Custom Sort'" :hide-search="true"/>
 
@@ -77,16 +78,7 @@ h1 {
 	font-family: 'Esteban';
 	text-align: center;
 	color: white;
-}
-.btn-series-explain {
-	color: #FFFFFF;
-	margin-left: 16px;
-	margin-top: 16px;
-	font-family: 'Montserrat';
-}
-.btn-series-explain:hover {
-	background: #3a2c5a;
-	color: #FFFFFF;
+  	margin-top: 32px;
 }
 .series-explanation {
 	background-color: #000021;
