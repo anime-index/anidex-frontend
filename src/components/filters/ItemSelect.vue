@@ -2,16 +2,20 @@
 defineProps({
     selectId: String,
     labelText: String,
-    selections: Array
+    selections: Array,
+    inputDisabled: {
+        type: Boolean,
+        default: false
+    }
 })
 </script>
 
 <template>
     <div>
         <label :for="selectId" class="form-label">{{labelText}}</label>
-        <select class="form-select" :aria-label="selectId">
+        <select class="form-select" :aria-label="selectId" :disabled="this.inputDisabled">
             <option selected>-</option>
-            <option v-for="selection in selections" :key="selections.indexOf(selection)" :value="selection">{{selection}}</option>
+            <option v-for="selection in selections" :key="selections.indexOf(selection)" :value="selection" :disabled="this.inputDisabled">{{selection}}</option>
         </select>
     </div>
 </template>

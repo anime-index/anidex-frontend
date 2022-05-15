@@ -25,13 +25,15 @@ defineProps({
                 </div>
                 <div class="col mysmall">
                     <div class="card-body mybody">
-                        <a :href="'https://myanimelist.net/anime/' + anime_id"><h5 class="card-title tit">{{title}}</h5></a>
+                        <a :href="'https://myanimelist.net/anime/' + anime_id"><h5 class="card-title tit" :title="this.title">{{title}}</h5></a>
                         <p class="card-text">{{score.toPrecision(3)}} | {{format_number(popularity)}} members | 
                             {{type}} | {{episodes}} episode{{"s".repeat(episodes>1)}}</p>
                         <p class="card-text overfl">{{synopsis}}</p>
-                        <p v-if="genres.length>=1" class="badge badge-primary">{{genres[0]["name"]}}</p>
-                        <p v-if="genres.length>=2" class="badge badge-primary">{{genres[1]["name"]}}</p>
-                        <p v-if="genres.length>=3" class="badge badge-primary">{{genres[2]["name"]}}</p>                        
+                        <div class="align-bottom genres-row">
+                            <p v-if="genres.length>=1" class="badge rounded-pill  genre-badge">{{genres[0]["name"]}}</p>
+                            <p v-if="genres.length>=2" class="badge rounded-pill genre-badge">{{genres[1]["name"]}}</p>
+                            <p v-if="genres.length>=3" class="badge rounded-pill  genre-badge">{{genres[2]["name"]}}</p>
+                        </div>                        
                     </div>                    
                 </div>
             </div>
@@ -41,4 +43,22 @@ defineProps({
 
 <style scoped>
 @import "@/assets/card.css";
+
+.genres-row {
+    position: absolute;
+    bottom: 0px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.genre-badge {
+    margin-right: 6px;
+    background-color: #3a2c5a;
+}
+
+.genre-badge::selection {
+    background: #241b3b;
+}
 </style>

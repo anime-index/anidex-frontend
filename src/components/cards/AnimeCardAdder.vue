@@ -17,7 +17,7 @@ defineProps({
                 </div>
                 <div class="col mysmall">
                     <div class="card-body mybody">
-                        <h5 class="card-title">{{title}}</h5>
+                        <h5 class="card-title tit" :title="this.title">{{title}}</h5>
                         <p class="card-text">{{score.toPrecision(3)}} | {{type}}</p>
                         <button type="button" class="btn add-btn shadow-none" @click="$emit('addEntry', this.title, 0, this.image_url, this.type)">
                             <i class="bi bi-box-arrow-right" id="anime-add"></i>
@@ -67,5 +67,24 @@ defineProps({
     background-color: #368519;
     border: #368519;
     color: white;
+}
+
+.tit {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.myimg::selection {
+    background: #3a2c5a;
+}
+
+.card-title::selection {
+    background: #3a2c5a;
+}
+
+.card-text::selection {
+    background: #3a2c5a;
 }
 </style>

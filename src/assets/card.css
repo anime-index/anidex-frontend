@@ -43,6 +43,7 @@
 }
 .card-text {
     font-family: 'Montserrat-light';
+    font-size: small;
 }
 .card-text::selection {
     background: #3a2c5a;

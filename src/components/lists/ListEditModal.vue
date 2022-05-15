@@ -114,12 +114,12 @@ export default {
                                 <div class="col-3" style="margin-right: 32px; ">
                                     <h5>Filters</h5>
                                     <NumericRange :rangeId="yearRangeData.rangeId" :labelText="yearRangeData.labelText"
-                                        :minValue="yearRangeData.minValue" :maxValue="yearRangeData.maxValue" :rangeStep="yearRangeData.rangeStep"></NumericRange>
-                                    <ItemSelect style="margin-top:8px;" :selectId="genreSelectData.selectId" :labelText="genreSelectData.labelText" :selections="genreSelectData.selections"></ItemSelect>
-                                    <ItemSelect style="margin-top:16px;" :selectId="studioSelectData.selectId" :labelText="studioSelectData.labelText" :selections="studioSelectData.selections"></ItemSelect>
+                                        :minValue="yearRangeData.minValue" :maxValue="yearRangeData.maxValue" :rangeStep="yearRangeData.rangeStep" :inputDisabled="true"></NumericRange>
+                                    <ItemSelect style="margin-top:8px;" :selectId="genreSelectData.selectId" :labelText="genreSelectData.labelText" :selections="genreSelectData.selections" :inputDisabled="true"></ItemSelect>
+                                    <ItemSelect style="margin-top:16px;" :selectId="studioSelectData.selectId" :labelText="studioSelectData.labelText" :selections="studioSelectData.selections" :inputDisabled="true"></ItemSelect>
                                     <NumericRange style="margin-top:16px;" :rangeId="scoreRangeData.rangeId" :labelText="scoreRangeData.labelText"
-                                        :minValue="scoreRangeData.minValue" :maxValue="scoreRangeData.maxValue" :rangeStep="scoreRangeData.rangeStep"></NumericRange>
-                                    <FlexRadio style="margin-top:8px;" :flexRadioId="statusRadioData.flexRadioId" :flexRadioLabelText="statusRadioData.flexRadioLabelText" :selections="statusRadioData.selections"></FlexRadio>
+                                        :minValue="scoreRangeData.minValue" :maxValue="scoreRangeData.maxValue" :rangeStep="scoreRangeData.rangeStep" :inputDisabled="true"></NumericRange>
+                                    <FlexRadio style="margin-top:8px;" :flexRadioId="statusRadioData.flexRadioId" :flexRadioLabelText="statusRadioData.flexRadioLabelText" :selections="statusRadioData.selections" :inputDisabled="true"></FlexRadio>
                                 </div>
                                 <div class="col anime-search" style="margin-right: 32px;">
                                     <h5>Anime Search</h5>

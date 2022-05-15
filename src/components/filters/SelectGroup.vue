@@ -10,6 +10,10 @@ defineProps({
     inLine: {
         type: Boolean,
         default: false
+    },
+    inputDisabled: {
+        type: Boolean,
+        default: false
     }
 })
 </script>
@@ -29,7 +33,7 @@ export default {
     <div>
         <h6 v-if="this.hasTitle" id="groupTitle">{{this.groupName}}</h6>
         <div v-for="item in this.selections" class="form-check" :class="{'form-check-inline': inLine}" :key="item.id">
-            <input class="form-check-input" type="checkbox" :value="item.id" :id="item.id" @input="$emit('callback', item.id)" :checked="item.selected">
+            <input class="form-check-input" type="checkbox" :value="item.id" :id="item.id" @input="$emit('callback', item.id)" :checked="item.selected" :disabled="this.inputDisabled">
             <label class="form-check-label" for="flexCheckDefault">
                 {{item.label}}
             </label>

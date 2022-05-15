@@ -24,7 +24,7 @@ defineProps({
                 </div>
                 <div class="col">
                     <div class="card-body mybody">
-                        <RouterLink :to="'/series/' + series_id"><h5 class="card-title tit">{{title}}</h5></RouterLink>
+                        <RouterLink :to="'/series/' + series_id"><h5 class="card-title tit" :title="this.title">{{title}}</h5></RouterLink>
                         <p class="card-text">{{score.toPrecision(3)}} | {{format_number(popularity)}} members | 
                             {{seasons}} season{{"s".repeat(seasons>1)}} | {{episodes}} episode{{"s".repeat(episodes>1)}} | {{date}}</p>
                         <p class="card-text overfl">{{synopsis}}</p>

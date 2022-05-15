@@ -65,6 +65,14 @@ export default {
           for (var i = this.currentTab; i <= this.list_key; i++) {
             this.list_tabs[i].key -= 1
           }
+      },
+
+      tabName(tabname) {
+          if (tabname.length > 10) {
+              return tabname.slice(0, 10) + "..."
+          } else {
+              return tabname
+          }
       }
   },
   mounted() {
@@ -87,7 +95,7 @@ export default {
         <ul class="nav nav-tabs" id="listTab" role="tablist">
             <li v-for="list_tab in list_tabs" class="nav-item" role="presentation" :key="list_tab.key">
                 <button class="nav-link" :id="list_tab.id + '-tab'" data-bs-toggle="tab" :data-bs-target="'#' + list_tab.id" 
-                type="button" role="tab" :aria-controls="list_tab.id" aria-selected="false" @click="tabChange(list_tab.key)">{{list_tab.text}}</button>
+                type="button" role="tab" :aria-controls="list_tab.id" aria-selected="false" :title="list_tab.text" @click="tabChange(list_tab.key)">{{tabName(list_tab.text)}}</button>
             </li>
             <li class="nav-item nav-add-list">
                 <button id="add-list" type="button" class="btn shadow-none btn-list" data-bs-toggle="modal" data-bs-target="#listCreate">

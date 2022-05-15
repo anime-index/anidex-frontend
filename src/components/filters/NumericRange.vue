@@ -4,7 +4,11 @@ defineProps({
     labelText: String,
     minValue: Number,
     maxValue: Number,
-    rangeStep: Number
+    rangeStep: Number,
+    inputDisabled: {
+        type: Boolean,
+        default: false
+    }
 })
 </script>
 
@@ -12,7 +16,7 @@ defineProps({
 <template>
     <div>
         <label :for="rangeId" class="form-label">{{labelText}}</label>
-        <input type="range" class="form-range" :min="minValue" :max="maxValue" :step="rangeStep" :id="rangeId">
+        <input type="range" class="form-range" :min="minValue" :max="maxValue" :step="rangeStep" :id="rangeId" :disabled="this.inputDisabled">
     </div>
 </template>
 
@@ -28,4 +32,12 @@ label::selection {
     background-color: #430e9e;
 }
 
+
+.form-range:disabled::-webkit-slider-runnable-track {
+    background-color: #9886c26b;
+}
+
+.form-range:disabled:-webkit-slider-thumb {
+    background-color: #430e9e5d;
+}
 </style>
