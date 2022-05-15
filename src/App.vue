@@ -41,7 +41,7 @@ import { RouterLink, RouterView } from 'vue-router'
           </ul>
           <form class="d-flex">
             <input class="form-control me-2 home-search" type="search" placeholder="Titles, characters ..." aria-label="Search">
-            <button class="btn btn-outline-success btn-home-search" type="submit">
+            <button class="btn btn-outline-success btn-home-search" type="submit" style="margin-right: 15px">
               <i class="bi-search"></i>
             </button>
           </form>
