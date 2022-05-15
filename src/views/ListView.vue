@@ -26,4 +26,8 @@ import ListTabs from '@/components/lists/ListTabs.vue';
         color: white;
         margin-top: 32px;
     }
+
+    h1::selection {
+        background: #3a2c5a;
+    }
 </style>

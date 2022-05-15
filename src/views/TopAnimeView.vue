@@ -75,4 +75,8 @@ h1 {
   color: white;
   margin-top: 32px;
 }
+
+h1::selection {
+	background: #3a2c5a;
+}
 </style>
