@@ -1,6 +1,6 @@
 <script setup>
 import { Popover } from 'bootstrap/dist/js/bootstrap.min.js'
-import { onUpdated } from '@vue/runtime-core';
+import { onUpdated } from '@vue/runtime-core'
 defineProps({
     position: Number,
     columns: Array,

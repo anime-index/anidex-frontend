@@ -1,9 +1,6 @@
 <script setup>
-import AnimeTable from './AnimeTable.vue'
-import AnimeTableItemVue from './AnimeTableItem.vue';
-import AnimeCardVue from './AnimeCard.vue';
-import AnimeCard from './AnimeCard.vue';
-import RenameModal from './RenameModal.vue';
+import AnimeTable from '@/components/tables/AnimeTable.vue'
+import RenameModal from './RenameModal.vue'
 import ListEditModal from './ListEditModal.vue'
 </script>
 

@@ -1,5 +1,5 @@
 <script setup>
-import SelectGroup from './filters/SelectGroup.vue'
+import SelectGroup from '@/components/filters/SelectGroup.vue'
 defineProps ({
     canvasHead: String,
     hideSearch: Boolean

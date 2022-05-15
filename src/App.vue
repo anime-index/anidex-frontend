@@ -7,7 +7,6 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #35495e">
       <div id="topappbar" class="container-fluid" >
         <a class="navbar-brand" href="#">
@@ -49,9 +48,18 @@ import { RouterLink, RouterView } from 'vue-router'
       </div>
     </nav>
 
-    <RouterView />
+  <main>
+  <RouterView />
+  </main>
 
-    <div id="footer_sitemap">
+  <footer id="footer_sitemap">
+    <div
+        id="footer_toggle_one"
+        class="ydb_circle ydb_sitemap_toggle toggle"
+        data-toggle="#ydb_sitemap_holder"
+        data-linked="#footer_toggle_two"/>
+
+    <div id="ydb_sitemap_holder">
       <div
           id="footer_toggle_one"
           class="ydb_circle ydb_sitemap_toggle toggle"
@@ -153,7 +161,8 @@ import { RouterLink, RouterView } from 'vue-router'
         </div>
       </div>
     </div>
-  </div>
+  </footer>
+
 </template>
 
 

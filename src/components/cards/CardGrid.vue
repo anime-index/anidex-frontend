@@ -1,7 +1,7 @@
 <script setup>
-import PlaceholderCard from './PlaceholderCard.vue';
-import SeriesCard from './SeriesCard.vue';
-import AnimeCard from './AnimeCard.vue';
+import PlaceholderCard from './PlaceholderCard.vue'
+import SeriesCard from './SeriesCard.vue'
+import AnimeCard from './AnimeCard.vue'
 defineProps({
 	dataJson: Object,
 	page: Number,

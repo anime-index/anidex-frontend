@@ -1,11 +1,14 @@
 <script setup>
-import NumericRange from './filters/NumericRange.vue'
-import ItemSelect from './filters/ItemSelect.vue'
-import FlexRadio from './filters/FlexRadio.vue'
-import AnimeTableEdit from './AnimeTableEdit.vue';
-import AnimeCardAdder from './AnimeCardAdder.vue'
+import NumericRange from '@/components/filters/NumericRange.vue'
+import ItemSelect from '@/components/filters/ItemSelect.vue'
+import FlexRadio from '@/components/filters/FlexRadio.vue'
+
+import AnimeTableEdit from '@/components/tables/AnimeTableEdit.vue'
+import AnimeCardAdder from '@/components/cards/AnimeCardAdder.vue'
+
 import axios from 'axios'
-import ConfirmationModal from './ConfirmationModal.vue';
+
+import ConfirmationModal from './ConfirmationModal.vue'
 defineProps({
     listName: String,
     listNameStatic: String,

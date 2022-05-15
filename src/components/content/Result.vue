@@ -1,7 +1,7 @@
 <script setup>
 import axios from 'axios'
-import PageNavigation from "./PageNavigation.vue";
-import CardGrid from "./CardGrid.vue";
+import PageNavigation from "./PageNavigation.vue"
+import CardGrid from "@/components/cards/CardGrid.vue"
 defineProps({
     type: String,
     order: Boolean

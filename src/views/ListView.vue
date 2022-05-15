@@ -1,5 +1,5 @@
 <script setup>
-import ListTabs from '../components/ListTabs.vue';
+import ListTabs from '@/components/lists/ListTabs.vue';
 </script>
 
 <template>
