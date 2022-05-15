@@ -148,8 +148,8 @@ export default {
 </template>
 
 
-<style>
-@media (min-width: 768px) {
+<style scoped>
+/*@media (min-width: 768px) {
   .carousel-inner {
     display: flex;
   }
@@ -158,7 +158,7 @@ export default {
     flex: 0 0 33.333333%;
     display: block;
   }
-}
+}*/
 
 .carousel-title {
   font-family: 'Montserrat-Bold';

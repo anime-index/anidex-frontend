@@ -13,7 +13,7 @@ defineProps({
         <div class="card mycard">
             <div class="row">
                 <div class="col myfixed">
-                    <img :src="image_url" class="myimg">
+                    <img :src="image_url" onerror="this.onerror=null; this.src='/src/assets/anidex_logo.png'" class="myimg">
                 </div>
                 <div class="col mysmall">
                     <div class="card-body mybody">
@@ -31,7 +31,7 @@ defineProps({
     </div>
 </template>
 
-<style>
+<style scoped>
 .mycard {
     min-width: 360px;
     background-color: #130230;

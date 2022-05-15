@@ -25,7 +25,7 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col myfixed">
-                <img :src="mydata.image_url" class="myimg">
+                <img :src="mydata.image_url" onerror="this.onerror=null; this.src='/src/assets/anidex_logo.png'" class="myimg">
             </div>
             <div class="col" id="description">
                 <h3>{{mydata.title}}</h3>
@@ -36,10 +36,9 @@ export default {
             </div>
         </div>
     </div>
-
 </template>
 
-<style>
+<style scoped>
 .myfixed {
     flex: 0 0 185px;
 }

@@ -20,7 +20,7 @@ defineProps({
             <span v-if="order" class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-success mybadge">#{{position}}</span>
             <div class="row">
                 <div class="col myfixed">
-                    <img :src="image_url" class="myimg">
+                    <img :src="image_url" onerror="this.onerror=null; this.src='/src/assets/anidex_logo.png'" class="myimg">
                 </div>
                 <div class="col mysmall">
                     <div class="card-body mybody">
@@ -30,51 +30,11 @@ defineProps({
                         <p class="card-text overfl">{{synopsis}}</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </template>
 
-<style>
-.mycard {
-    min-width: 360px;
-    background-color: #130230;
-}
-
-.myfixed {
-    flex: 0 0 185px;
-}
-
-.myimg {
-    width: 185px;
-    height: 265px;
-}
-
-.myimg::selection {
-    background: #3a2c5a;
-}
-
-.mybody {
-    padding: 8px 8px;
-}
-
-.card-title::selection {
-    background: #3a2c5a;
-}
-
-.card-text {
-    font-family: 'Montserrat-light';
-}
-
-.card-text::selection {
-    background: #3a2c5a;
-}
-
-.overfl {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-}
+<style scoped>
+@import "@/assets/card.css";
 </style>

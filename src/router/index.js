@@ -26,7 +26,7 @@ const router = createRouter({
     },
     {
       path: '/search',
-      component: () => import('../views/SearchView.vue')
+      component: () => import('../views/SearchAnimeView.vue')
     }
   ]
 })

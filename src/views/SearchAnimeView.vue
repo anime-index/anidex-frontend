@@ -1,7 +1,7 @@
 <script setup>
 import FiltersCanvas from '../components/FiltersCanvas.vue'
-import axios from 'axios'
 import Result from '../components/Result.vue';
+import StickyButton from '../components/StickyButton.vue';
 </script>
 
 <script>
@@ -9,11 +9,6 @@ export default {
   name: "Search",
   data(){
     return {
-			page: 0,
-			last_page: 0,
-      myjson: [],
-      status: 'loading',
-
       title: '',
       tv: false,
       movie: false,
@@ -27,7 +22,6 @@ export default {
     _resultQuery(search) {
       this.title = search
       this.select_page(0)
-      axios
     },
     mycallback(attr) {
       if (attr === 'tv')
@@ -55,35 +49,27 @@ export default {
         params.push('type=' + types.join(','))
       }
       url += params.join('&')
-      axios
-      .get(url)
-      .then(response => {
-        this.myjson = response.data.lst
-        this.page = response.data.page
-        this.last_page = response.data.last_page
-        this.status = 'normal'
-        })
+      this.$refs.myresult.get_data(url)
     }
   }
 }
 </script>
 
 <template>
-    <div id="search" class="min-vh-100">
-      <div class="sticky-top">
-          <a class="btn btn-filters shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-canvas" aria-controlls="offcanvas-filters">
-            <i class="bi bi-filter-left" id="filters-icon"></i>
-            <label for="filters-icon" style="margin-left:8px">Filters</label>
-          </a>
-        </div>
-      <FiltersCanvas :canvas-head="'Filters'" @query-search="_resultQuery" @callback="mycallback"/>
-      <Result :data-json="myjson" :page="page" :last-page="last_page" :status="status" :type="'anime'" @last-callback="select_page" :order="false"/>
 
-    </div>
+  <div id="search">
+
+    <StickyButton :title="'Filters'"/>
+
+    <FiltersCanvas :canvas-head="'Filters'" @query-search="_resultQuery" @callback="mycallback"/>
+
+    <Result ref="myresult" :type="'anime'" @last-callback="select_page" :order="false"/>
+
+  </div>
+
 </template>
 
-<style>
-
+<style scoped>
 h1 {
   font-family: 'Esteban';
   text-align: center;
@@ -96,10 +82,6 @@ h1 {
   margin-top: 32px;
   margin-bottom: 32px;
   font-family: 'Montserrat';
-}
-
-.mymargin {
-  margin-top: 36px;
 }
 
 .search-text-box {
@@ -116,14 +98,5 @@ h1 {
     background: #3a2c5a;
 }
 
-.btn-filters {
-    color: white;
-    font-size: large;
-}
-
-.btn-filters:hover {
-    background: #3a2c5a;
-    color: white
-}
 </style>
 

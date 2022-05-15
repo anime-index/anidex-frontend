@@ -29,21 +29,6 @@
 </template>
 
 
-<style>
-.mycard {
-    min-width: 360px;
-    height: 265px;
-}
-.myimg {
-    width: 185px;
-    height: 265px;
-}
-.myfixed {
-    flex: 0 0 185px;
-    width: 185px;
-    height: 265px;
-}
-.mybody {
-    padding: 8px 8px;
-}
+<style scoped>
+@import "@/assets/card.css";
 </style>

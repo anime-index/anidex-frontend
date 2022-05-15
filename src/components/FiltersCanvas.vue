@@ -15,7 +15,7 @@ export default {
                 sortSelections: [
                     {id: 'score', label: 'Score', selected: true},
                     {id: 'popularity', label: 'Popularity', selected: true},
-                    {id: 'airdate', label: 'Air Date', selected: false},
+                    {id: 'date', label: 'Air Date', selected: false},
                     {id: 'episodes', label: 'Number of Episodes', selected: false}
                 ]
             },
@@ -54,7 +54,7 @@ export default {
 
 
 <template>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="filters-canvas" aria-labelledby="offcanvas-filters">
+    <div class="offcanvas offcanvas-start mycanva" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="filters-canvas" aria-labelledby="offcanvas-filters">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvas-filters">{{canvasHead}}</h5>
             <button type="button" class="btn-close text-reset shadow-none btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -75,18 +75,18 @@ export default {
 </template>
 
 <style scoped>
-    .offcanvas-header {
-        background-color: #130230;
-        color: white;
-    }
-
-    .offcanvas-body {
-        background-color: #000021;
-        color: white;
-    }
-
-    h5::selection {
-        background: #3a2c5a;
-    }
-    
+.mycanva {
+    max-width: 280px;
+}
+.offcanvas-header {
+    background-color: #130230;
+    color: white;
+}
+.offcanvas-body {
+    background-color: #000021;
+    color: white;
+}
+h5::selection {
+    background: #3a2c5a;
+}
 </style>
