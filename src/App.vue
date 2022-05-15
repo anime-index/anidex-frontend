@@ -91,7 +91,7 @@ import { RouterLink, RouterView } from 'vue-router'
                     <RouterLink to="/"><img class="homelogo" src="./assets/anidex_logo.png" alt="Anidex" height="70" width="70"></RouterLink>
                     <ul class="sub-menu">
                       <li class="menu-item">
-                        <a href="https://mat.ub.edu/" ><img src="./assets/logo_ub.png" alt="Universitat de Barcelona" style="margin-top: 16px; margin-bottom: 20px"></a>
+                        <a href="https://mat.ub.edu/" ><img src="./assets/logo_ub.png" class="ub-logo" alt="Universitat de Barcelona" style="margin-top: 16px; margin-bottom: 20px"></a>
                       </li>
                     </ul>
                   </li>
@@ -304,6 +304,10 @@ a.router-link-active.router-link-exact-active.nav-link {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+}
+
+.ub-logo::selection {
+  background: #3a2c5a;
 }
 
 </style>

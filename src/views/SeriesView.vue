@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container min-vh-100" style="margin-top: 32px;">
         <div class="row">
             <div class="col myfixed">
                 <img :src="mydata.image_url" onerror="this.onerror=null; this.src='/src/assets/anidex_logo.png'" class="myimg">
@@ -42,10 +42,7 @@ export default {
 .myfixed {
     flex: 0 0 185px;
 }
-.myimg {
-    width: 185px;
-    height: 265px;
-}
+
 #description{
   color: white;
 }
