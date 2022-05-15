@@ -43,22 +43,4 @@ defineProps({
 
 <style scoped>
 @import "@/assets/card.css";
-
-.genres-row {
-    position: absolute;
-    bottom: 0px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-}
-
-.genre-badge {
-    margin-right: 6px;
-    background-color: #3a2c5a;
-}
-
-.genre-badge::selection {
-    background: #241b3b;
-}
 </style>

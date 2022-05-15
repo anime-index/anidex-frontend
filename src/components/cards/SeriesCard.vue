@@ -10,14 +10,16 @@ defineProps({
     seasons: Number,
     synopsis: String,
     position: Number,
-    date: String
+    date: String,
+    genres: Object,
+    order: Boolean
 })
 </script>
 
 <template>
     <div class="col">
         <div class="card mycard">
-            <span class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-success mybadge">#{{position}}</span>
+            <span v-if="order" class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-success mybadge">#{{position}}</span>
             <div class="row">
                 <div class="col myfixed">
                     <img :src="image_url" onerror="this.onerror=null; this.src='/src/assets/anidex_logo.png'" class="myimg">
@@ -28,6 +30,11 @@ defineProps({
                         <p class="card-text">{{score.toPrecision(3)}} | {{format_number(popularity)}} members | 
                             {{seasons}} season{{"s".repeat(seasons>1)}} | {{episodes}} episode{{"s".repeat(episodes>1)}} | {{date}}</p>
                         <p class="card-text overfl">{{synopsis}}</p>
+                        <div class="align-bottom genres-row">
+                            <p v-if="genres.length>=1" class="badge rounded-pill  genre-badge">{{genres[0]["name"]}}</p>
+                            <p v-if="genres.length>=2" class="badge rounded-pill genre-badge">{{genres[1]["name"]}}</p>
+                            <p v-if="genres.length>=3" class="badge rounded-pill  genre-badge">{{genres[2]["name"]}}</p>
+                        </div>
                     </div>
                 </div>
             </div>

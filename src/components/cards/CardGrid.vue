@@ -26,7 +26,7 @@ defineProps({
 						<SeriesCard v-for="item in dataJson" class="series-card" :key="item.series_id" :series_id="item.series_id"
 						:title="item.title" :popularity="item.popularity" :score="item.score" :image_url="item.image_url"
 						:episodes="item.episodes" :seasons="item.seasons" :synopsis="item.synopsis" :position="item.position"
-						:date="item.date.slice(0, 4)"/>
+						:date="item.date.slice(0, 4)" :genres="item.genres" :order="order"/>
 					</template>
 
 					<template v-else-if="status==='normal' && type=='anime'">
