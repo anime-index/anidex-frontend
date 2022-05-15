@@ -31,10 +31,10 @@ export default {
   </div>
 
   <div class="row d-block top-anime-row">
-      <div v-for="item in top_a_json.slice(0, 10)" class="d-inline-block w-50" :key="item.mal_id">
-          <AnimeCard :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members"
+      <div v-for="item in this.top_a_json.slice(0, 10)" class="d-inline-block w-50" :key="item.mal_id">
+          <AnimeCard :anime_id="item.mal_id" :title="item.title" :popularity="item.mal_members" :order="true"
                 :score="item.mal_score" :image_url="item.image_url" :episodes="item.episodes" :type="item.type" :synopsis="item.synopsis"
-                :position="top_a_json.indexOf(item)+1" :genres="item.genres" style="white-space: normal; margin-top: 16px; margin-bottom: 16px; margin-left: 8px; color: white;"/>
+                :position="top_a_json.indexOf(item)+1" :genres="item.genres" style="white-space: normal; margin-top: 16px; margin-bottom: 16px; margin-left: 10px; color: white;"/>
       </div>
   </div>
 
@@ -84,7 +84,7 @@ export default {
       <div v-for="item in top_s_json.slice(0, 10)" class="d-inline-block w-50" :key="item.series_id">
           <SeriesCard :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
                     :score="item.score" :image_url="item.image_url" :episodes="item.episodes" :seasons="item.seasons" :synopsis="item.synopsis"
-                    :position="item.position" style="white-space: normal; margin-top: 16px; margin-bottom: 16px; margin-left: 8px;"/>
+                    :position="item.position" style="white-space: normal; margin-top: 16px; margin-bottom: 16px; margin-left: 10px;"/>
       </div>
   </div>
 
