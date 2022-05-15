@@ -7,6 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
+
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #35495e">
     <div id="topappbar" class="container-fluid" >
       <a class="navbar-brand" href="#">
@@ -40,12 +41,16 @@ import { RouterLink, RouterView } from 'vue-router'
         </ul>
         <form class="d-flex">
           <input class="form-control me-2 home-search" type="search" placeholder="Titles, characters ..." aria-label="Search">
-          <button class="btn btn-outline-success btn-home-search" type="submit">Search</button>
+          <button class="btn btn-outline-success btn-home-search" type="submit" style="margin-right: 15px">
+            <i class="bi-search"></i>
+          </button>
         </form>
       </div>
     </div>
   </nav>
+
   <RouterView />
+
   <div id="footer_sitemap">
     <div
         id="footer_toggle_one"
@@ -58,80 +63,91 @@ import { RouterLink, RouterView } from 'vue-router'
           id="footer_toggle_two"
           class="ydb_circle ydb_sitemap_toggle toggle"
           data-toggle="#ydb_sitemap_holder"
-          data-linked="#footer_toggle_one"/>
-      <div class="container-fluid">
-        <div class="row content-holder">
-          <div
-              id="footer-nav"
-              class="col-sm-24 nav justify-content-center">
-            <ul
-                id="menu-main-menu-2"
-                class="menu">
-              <li class="menu-item menu-item-has-children">
-                <RouterLink to="/">Home</RouterLink>
-                <ul class="sub-menu">
-                </ul>
-              </li>
-              <li class="menu-item menu-item-has-children">
-                <RouterLink to="/">Profile</RouterLink>
-                <ul class="sub-menu">
-                  <li class="menu-item">
-                    <RouterLink to="/list">My Lists</RouterLink>
-                  </li>
-                  <li class="menu-item">
-                    <RouterLink to="/">My Reviews</RouterLink>
-                  </li>
-                </ul>
-              </li>
-              <li class="menu-item menu-item-has-children">
-                <RouterLink to="/search">Browse Anime</RouterLink>
-                <ul class="sub-menu">
-                  <li class="menu-item menu-item-75">
-                    <RouterLink to="/search">Advanced Search</RouterLink>
-                  </li>
-                  <li class="menu-item">
-                    <RouterLink to="/">Seasons</RouterLink>
-                  </li>
-                  <li class="menu-item">
-                    <RouterLink to="/">Genres</RouterLink>
-                  </li>
-                  <li class="menu-item">
-                    <RouterLink to="/">Studios</RouterLink>
-                  </li>
-                </ul>
-              </li>
-              <li class="menu-item menu-item-has-children">
-                <RouterLink to="/">Tops</RouterLink>
-                <ul class="sub-menu">
-                  <li class="menu-item">
-                    <RouterLink to="/top/anime">Top of Anime</RouterLink>
-                  </li>
-                  <li class="menu-item">
-                    <RouterLink to="/top/series">Top of Series</RouterLink>
-                  </li>
-                  <li class="menu-item">
-                    <RouterLink to="/">Custom Top</RouterLink>
-                  </li>
-                  <li class="menu-item">
-                    <RouterLink to="/">Top Recommendation</RouterLink>
-                  </li>
-                </ul>
-              </li>
-              <li class="menu-item menu-item-has-children">
-                <RouterLink to="/">Help</RouterLink>
-                <ul class="sub-menu">
-                  <li class="menu-item">
-                    <RouterLink to="/">FAQ</RouterLink>
-                  </li>
-                  <li class="menu-item">
-                    <RouterLink to="/">Support</RouterLink>
-                  </li>
-                  <li class="menu-item">
-                    <RouterLink to="/">About Anidex</RouterLink>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+          data-linked="#footer_toggle_two"/>
+
+      <div id="ydb_sitemap_holder">
+        <div
+            id="footer_toggle_two"
+            class="ydb_circle ydb_sitemap_toggle toggle"
+            data-toggle="#ydb_sitemap_holder"
+            data-linked="#footer_toggle_one"/>
+        <div class="container">
+          <div class="row content-holder">
+            <div
+                id="footer-nav"
+                class="col-sm-24 nav justify-content-center">
+              <ul
+                  id="menu-main-menu-2"
+                  class="menu">
+                <li class="menu-item menu-item-has-children">
+                  <RouterLink to="/"><img class="homelogo" src="./assets/anidex_logo.png" alt="Anidex" height="70" width="70"></RouterLink>
+                  <ul class="sub-menu">
+                    <li class="menu-item">
+                      <a href="https://mat.ub.edu/" ><img src="./assets/logo_ub.png" alt="Universitat de Barcelona" style="margin-top: 16px; margin-bottom: 20px"></a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <RouterLink to="/">Profile</RouterLink>
+                  <ul class="sub-menu">
+                    <li class="menu-item">
+                      <RouterLink to="/list">My Lists</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">My Reviews</RouterLink>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <RouterLink to="/search">Browse Anime</RouterLink>
+                  <ul class="sub-menu">
+                    <li class="menu-item menu-item-75">
+                      <RouterLink to="/search">Advanced Search</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">Seasons</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">Genres</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">Studios</RouterLink>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <RouterLink to="/">Tops</RouterLink>
+                  <ul class="sub-menu">
+                    <li class="menu-item">
+                      <RouterLink to="/top/anime">Top of Anime</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/top/series">Top of Series</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">Custom Top</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">Top Recommendation</RouterLink>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <RouterLink to="/">Help</RouterLink>
+                  <ul class="sub-menu">
+                    <li class="menu-item">
+                      <RouterLink to="/">FAQ</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">Support</RouterLink>
+                    </li>
+                    <li class="menu-item">
+                      <RouterLink to="/">About Anidex</RouterLink>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
