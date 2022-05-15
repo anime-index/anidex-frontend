@@ -1,5 +1,5 @@
 <script setup>
-import {format_number} from "../useful/functions.js"
+import {format_number} from "@/useful/functions.js"
 defineProps({
     anime_id: Number,
     title: String,

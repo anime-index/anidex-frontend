@@ -1,7 +1,7 @@
 <script setup>
 import axios from 'axios'
-import AnimeCard from '../components/AnimeCard.vue'
-import SeriesCard from '../components/SeriesCard.vue'
+import AnimeCard from '@/components/cards/AnimeCard.vue'
+import SeriesCard from '@/components/cards/SeriesCard.vue'
 </script>
 
 <script>
@@ -9,36 +9,19 @@ export default {
   name: "Home",
   data(){
     return {
-      searchQuery: null,
       top_a_json: [],
       top_s_json: []
     };
   },
   mounted () {
-
     axios
         .get(this.backendUrl + 'top/anime')
         .then(response => (this.top_a_json = response.data.lst))
     axios
         .get(this.backendUrl + 'top/series')
         .then(response => (this.top_s_json = response.data.lst))
-  },
-  computed: {
-    resultQuery(){
-      if (this.searchQuery) {
-        return this.top_a_json.filter(item => {
-          return this.searchQuery
-              .toLowerCase()
-              .split(" ")
-              .every(v => item.title.toLowerCase().includes(v));
-        });
-      } else {
-        return this.top_a_json;
-      }
-    }
   }
-
-};
+}
 </script>
 
 <template>
@@ -99,7 +82,7 @@ export default {
 
   <div class="row d-block top-anime-row">
       <div  v-for="item in this.top_s_json.slice(0, 10)" class="d-inline-block w-50" :key="item.series_id">
-          <SeriesCard class="serie-card" :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
+          <SeriesCard :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
                     :score="item.score" :image_url="item.image_url" :episodes="item.episodes" :seasons="item.seasons" :synopsis="item.synopsis"
                     :position="item.position" style="white-space: normal; margin-top: 16px; margin-bottom: 16px; margin-left: 8px;"/>
       </div>
@@ -171,19 +154,6 @@ export default {
 
 .carousel-inner{
   padding: 1em;
-}
-.anime-card{
-  color: white;
-  margin: 0 .5em;
-  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-  border: none;
-}
-
-.serie-card{
-  color: white;
-  margin: 0 .5em;
-  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-  border: none;
 }
 
 .carousel-control-prev, .carousel-control-next{

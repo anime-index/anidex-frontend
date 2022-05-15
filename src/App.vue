@@ -49,9 +49,11 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
   </nav>
 
+  <main>
   <RouterView />
+  </main>
 
-  <div id="footer_sitemap">
+  <footer id="footer_sitemap">
     <div
         id="footer_toggle_one"
         class="ydb_circle ydb_sitemap_toggle toggle"
@@ -152,7 +154,7 @@ import { RouterLink, RouterView } from 'vue-router'
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 
 </template>
 

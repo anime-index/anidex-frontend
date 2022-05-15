@@ -1,7 +1,7 @@
 <script setup>
-import FiltersCanvas from '../components/FiltersCanvas.vue'
-import Result from '../components/Result.vue'
-import StickyButton from '../components/StickyButton.vue';
+import StickyButton from '@/components/content/StickyButton.vue'
+import FiltersCanvas from '@/components/content/FiltersCanvas.vue'
+import Result from '@/components/content/Result.vue'
 </script>
 
 <script>
