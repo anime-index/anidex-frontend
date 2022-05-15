@@ -31,9 +31,9 @@ export default {
 
 <template>
     <div>
-        <h6 v-if="this.hasTitle" id="groupTitle">{{this.groupName}}</h6>
-        <div v-for="item in this.selections" class="form-check" :class="{'form-check-inline': inLine}" :key="item.id">
-            <input class="form-check-input" type="checkbox" :value="item.id" :id="item.id" @input="$emit('callback', item.id)" :checked="item.selected" :disabled="this.inputDisabled">
+        <h6 v-if="hasTitle" id="groupTitle">{{groupName}}</h6>
+        <div v-for="item in selections" class="form-check" :class="{'form-check-inline': inLine}" :key="item.id">
+            <input class="form-check-input" type="checkbox" :value="item.id" :id="item.id" @input="$emit('callback', item.id)" :checked="item.selected" :disabled="inputDisabled">
             <label class="form-check-label" for="flexCheckDefault">
                 {{item.label}}
             </label>
