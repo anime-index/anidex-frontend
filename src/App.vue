@@ -69,8 +69,11 @@ import { RouterLink, RouterView } from 'vue-router'
                   id="menu-main-menu-2"
                   class="menu">
                 <li class="menu-item menu-item-has-children">
-                  <RouterLink to="/">Home</RouterLink>
+                  <RouterLink to="/"><img class="homelogo" src="./assets/anidex_logo.png" alt="Anidex" height="70" width="70"></RouterLink>
                   <ul class="sub-menu">
+                    <li class="menu-item">
+                      <a href="https://mat.ub.edu/" ><img src="./assets/logo_ub.png" alt="Universitat de Barcelona" style="margin-top: 16px; margin-bottom: 20px"></a>
+                    </li>
                   </ul>
                 </li>
                 <li class="menu-item menu-item-has-children">
@@ -273,7 +276,7 @@ a.router-link-active.router-link-exact-active.nav-link {
 #menu-main-menu-2 {
   display: flex;
   margin-top: 16px;
-  justify-content: space-around;
+  justify-content: center;
 }
 #footer-nav {
   display: initial;
