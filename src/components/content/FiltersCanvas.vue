@@ -38,9 +38,7 @@ export default {
                     {id: 'movie', label: 'Movie', selected: false},
                     {id: 'special', label: 'Special', selected: false},
                 ]
-            },
-
-            searchText: ""
+            }
         }
     },
     methods: {
@@ -62,12 +60,12 @@ export default {
         <div class="offcanvas-body">
             <div class="container">
               <input v-if="!hideSearch" class="form-control me-2 search-text-box shadow-none" type="search" placeholder="Search" aria-label="Search"
-              v-model="searchText" @input="$emit('querySearch', searchText)">
+              @input="event => text = $emit('querySearch', event.target.value)">
                 <h5 v-if="hideSearch" style="margin-top: 16px;">Sort By</h5>
-                <SelectGroup v-if="hideSearch" @callback="mycallback" :group-id="this.sortData.sortId" :selections="sortData.sortSelections" :has-title="false"></SelectGroup>
+                <SelectGroup v-if="hideSearch" @callback="mycallback" :group-id="sortData.sortId" :selections="sortData.sortSelections" :has-title="false"></SelectGroup>
                 <h5 style="margin-top: 24px;">Filters</h5>
-                <SelectGroup @callback="mycallback" :group-id="this.genreData.sortId" :group-name="genreData.sortName" :selections="genreData.sortSelections" style="margin-top: 16px;"></SelectGroup>
-                <SelectGroup v-if="!hideSearch" @callback="mycallback" :group-id="this.typeData.sortId" :group-name="typeData.sortName" 
+                <SelectGroup @callback="mycallback" :group-id="genreData.sortId" :group-name="genreData.sortName" :selections="genreData.sortSelections" style="margin-top: 16px;"></SelectGroup>
+                <SelectGroup v-if="!hideSearch" @callback="mycallback" :group-id="typeData.sortId" :group-name="typeData.sortName" 
                 :selections="typeData.sortSelections" :in-line="true" style="margin-top: 16px;"></SelectGroup>
             </div>  
         </div>

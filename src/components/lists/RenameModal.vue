@@ -40,7 +40,7 @@ export default {
                         <input v-model="newName" type="text" class="form-control text-box shadow-none" :aria-label="modalId+'Input'" aria-describedby="rename-modal"
                         @input="inputError = false" @keyup.enter="createList" :placeholder="placeholder">
                     </div>
-                    <p class="input-error" v-if="this.inputError">You have to write a name for your list!</p>
+                    <p class="input-error" v-if="inputError">You have to write a name for your list!</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-transparent shadow-none" data-bs-dismiss="modal" id="dismiss">Cancel</button>
