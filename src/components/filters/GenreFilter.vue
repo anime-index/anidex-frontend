@@ -39,4 +39,10 @@ export default {
 .purp::-webkit-scrollbar-corner {
     background: #21005700;
 }
+label::selection {
+    background: #3a2c5a;
+}
+h6::selection {
+        background: #3a2c5a;
+}
 </style>

@@ -7,7 +7,8 @@ defineProps({
 	page: Number,
 	status: String,
 	type: String,
-	order: Boolean
+	order: Boolean,
+	dataId: Number
 })
 </script>
 
@@ -15,7 +16,7 @@ defineProps({
 	<div class="parent-grid">
 
 		<Transition name="fade" class="child-grid">
-			<div class="container" :key="status+page">
+			<div class="container" :key="status+dataId+page">
 				<div class="row myseparation">
 
 					<template v-if="status==='loading'">

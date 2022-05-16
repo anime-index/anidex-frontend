@@ -104,6 +104,9 @@ import { RouterLink, RouterView } from 'vue-router'
                       <li class="menu-item">
                         <RouterLink to="/">My Reviews</RouterLink>
                       </li>
+                      <li class="menu-item">
+                        <RouterLink to="/">My Recommendations</RouterLink>
+                      </li>
                     </ul>
                   </li>
                   <li class="menu-item menu-item-has-children">
@@ -127,16 +130,10 @@ import { RouterLink, RouterView } from 'vue-router'
                     <RouterLink to="/">Tops</RouterLink>
                     <ul class="sub-menu">
                       <li class="menu-item">
-                        <RouterLink to="/top/anime">Top of Anime</RouterLink>
+                        <RouterLink to="/top/series">Top Series</RouterLink>
                       </li>
                       <li class="menu-item">
-                        <RouterLink to="/top/series">Top of Series</RouterLink>
-                      </li>
-                      <li class="menu-item">
-                        <RouterLink to="/">Custom Top</RouterLink>
-                      </li>
-                      <li class="menu-item">
-                        <RouterLink to="/">Top Recommendation</RouterLink>
+                        <RouterLink to="/top/anime">Top Anime</RouterLink>
                       </li>
                     </ul>
                   </li>

@@ -84,7 +84,7 @@ export default {
       <div v-for="item in this.top_s_json.slice(0, 10)" class="d-inline-block" style="max-width: 500px;" :key="item.series_id">
           <SeriesCard :key="item.series_id" :series_id="item.series_id" :title="item.title" :popularity="item.popularity"
                     :score="item.score" :image_url="item.image_url" :episodes="item.episodes" :seasons="item.seasons"
-                    :synopsis="item.synopsis" :position="item.position" :genres="item.genres"
+                    :synopsis="item.synopsis" :position="item.position" :genres="item.genres" :order="true"
                     style="white-space: normal; margin-top: 16px; margin-bottom: 16px; margin-left: 10px;"/>
       </div>
   </div>

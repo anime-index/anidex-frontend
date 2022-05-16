@@ -1,8 +1,8 @@
 <script setup>
 import StickyButton from '@/components/content/StickyButton.vue'
+import SortItem from '../components/filters/SortItem.vue'
 import GenreFilter from '../components/filters/GenreFilter.vue'
 import Result from '@/components/content/Result.vue'
-import SortItem from '../components/filters/SortItem.vue'
 </script>
 
 <script>
@@ -25,9 +25,9 @@ export default {
 			let params = []
 
 			//Page
-			if (page > 0)
+			if (page > 0) {
 				params.push('page=' + page)
-			
+			}
 			//Sorting
 			if (Object.values(this.sortBy).some(value => value > 0)) {
 				let keys = []
@@ -39,9 +39,9 @@ export default {
 				}
 				params.push('sort_by=' + keys.join(','))
 			}
-			else
+			else {
 				params.push('sort_by=None')
-			
+			}
 			//Genres
 			if (this.genres.size > 0) {
 				params.push('genres=' + Array.from(this.genres).join(','))
@@ -89,7 +89,7 @@ export default {
 		</div>
 	</div>
 
-	<StickyButton :title="'Custom Sort'"/>
+	<StickyButton title="Custom Sort" :start-enabled="false"/>
 
 	<div class="offcanvas offcanvas-start mycanva" data-bs-scroll="true" tabindex="-1" id="filters-canvas" aria-labelledby="offcanvas-filters">
         <div class="offcanvas-header">
@@ -118,16 +118,8 @@ export default {
 </template>
 
 <style scoped>
-h1 {
-	font-family: 'Esteban';
-	text-align: center;
-	color: white;
-  	margin-top: 32px;
-}
+@import "@/assets/result_view.css";
 
-h1::selection {
-        background: #3a2c5a;
-}
 .series-explanation {
 	background-color: #000021;
 	color: white;
@@ -144,19 +136,5 @@ h1::selection {
 .goto-tops-anime:hover {
 	background-color: #3a2c5a;
 	color: rgb(196, 194, 194);
-}
-.mycanva {
-    max-width: 280px;
-}
-.offcanvas-header {
-    background-color: #130230;
-    color: white;
-}
-.offcanvas-body {
-    background-color: #000021;
-    color: white;
-}
-h5::selection {
-    background: #3a2c5a;
 }
 </style>

@@ -59,9 +59,10 @@ export default {
 .inactive {
     color: white;
 }
-
 .btn:hover {
     background: #3a2c5a;
-    color: white
+}
+label::selection {
+    background: #3a2c5a;
 }
 </style>

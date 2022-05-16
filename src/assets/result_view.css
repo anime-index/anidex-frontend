@@ -1,0 +1,26 @@
+h1 {
+	font-family: 'Esteban';
+	text-align: center;
+	color: white;
+  	margin-top: 32px;
+}
+h1::selection {
+	background: #3a2c5a;
+}
+.mycanva {
+    max-width: 280px;
+}
+.offcanvas-header {
+    background-color: #130230;
+    color: white;
+}
+.offcanvas-body {
+    background-color: #000021;
+    color: white;
+}
+h5::selection {
+    background: #3a2c5a;
+}
+br::selection {
+    background: #3a2c5a;
+}

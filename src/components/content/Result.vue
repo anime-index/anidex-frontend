@@ -16,8 +16,10 @@ export default {
         return {
             dataJson: [],
             page: 0,
-            lastPage: 1,
-            status: 'loading'
+            lastPage: 0,
+            status: 'loading',
+            dataId: 0,
+            requestId: 0
         }
     },
     methods: {
@@ -25,13 +27,19 @@ export default {
             this.$emit('lastCallback', page)
         },
         get_data(url) {
+            //Prevent loading older request, which are asyncronous
+            this.requestId++
+            const myRequestId = this.requestId;
             axios
 				.get(url)
 				.then(response => {
-					this.status = 'normal'
-					this.dataJson = response.data.lst
-					this.page = response.data.page
-					this.lastPage = response.data.last_page
+                    if (myRequestId > this.dataId) {
+                        this.dataId = myRequestId
+                        this.status = 'normal'
+                        this.dataJson = response.data.lst
+                        this.page = response.data.page
+                        this.lastPage = response.data.last_page
+                    }
 				})
 				.catch(() => {
 					this.status = 'failed'
@@ -54,10 +62,17 @@ export default {
 		</div>
 	</template>
 
-	<template v-else>
+	<template v-else-if="status==='loading' || dataJson.length > 0">
         <PageNavigation @callback="select_page" :page="page" :last-page="lastPage" style="margin-top:16px;"/>
-        <CardGrid :data-json="dataJson" :page="page" :status="status" :type="type" :order="order"/>
+        <CardGrid :data-json="dataJson" :page="page" :status="status" :type="type" :order="order" :data-id="dataId"/>
         <PageNavigation @callback="select_page" :page="page" :last-page="lastPage"/>
+    </template>
+
+    <template v-else>
+        <div class="mytext">
+			<h5>Yikes! There are no {{type}} with the selected criteria</h5>
+			<p>Go back or unselect some</p>
+		</div>
     </template>
     
 </template>

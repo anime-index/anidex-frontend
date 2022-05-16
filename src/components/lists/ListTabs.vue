@@ -47,16 +47,13 @@ export default {
       },
 
       editListAuxiliars() {
-          console.log(this.currentTabAnimeList)
           this.currentTabName = this.list_tabs[this.currentTab].text
           this.currentTabAnimeList = this.list_tabs[this.currentTab].list.slice()
-          console.log(this.currentTabAnimeList)
       },
 
       saveListEdition(newName, newList) {
           this.list_tabs[this.currentTab].text = newName
           this.list_tabs[this.currentTab].list = newList
-          console.log(newList)
       },
 
       deleteList() {
