@@ -87,7 +87,7 @@ import { RouterLink, RouterView } from 'vue-router'
                 <ul
                     id="menu-main-menu-2"
                     class="menu">
-                  <li class="menu-item menu-item-has-children">
+                  <li class="menu-item menu-item-has-children hidesmall">
                     <RouterLink to="/"><img class="homelogo" src="./assets/anidex_logo.png" alt="Anidex" height="70" width="70"></RouterLink>
                     <ul class="sub-menu">
                       <li class="menu-item">
@@ -164,6 +164,12 @@ import { RouterLink, RouterView } from 'vue-router'
 
 
 <style>
+@media screen and (max-width: 800px) {
+  .hidesmall {
+    display: none !important;
+}
+}
+
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"), url(./fonts/montserrat/static/Montserrat-Regular.ttf) format("truetype");

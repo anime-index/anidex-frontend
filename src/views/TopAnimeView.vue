@@ -1,9 +1,9 @@
 <script setup>
-import StickyButton from '@/components/content/StickyButton.vue'
+import StickyButton from '@/components/StickyButton.vue'
 import SortItem from '../components/filters/SortItem.vue'
 import TypeFilter from '../components/filters/TypeFilter.vue'
 import GenreFilter from '../components/filters/GenreFilter.vue'
-import Result from '@/components/content/Result.vue'
+import Result from '@/components/Result.vue'
 </script>
 
 <script>

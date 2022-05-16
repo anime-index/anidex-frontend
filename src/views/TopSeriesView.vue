@@ -1,8 +1,8 @@
 <script setup>
-import StickyButton from '@/components/content/StickyButton.vue'
+import StickyButton from '@/components/StickyButton.vue'
 import SortItem from '../components/filters/SortItem.vue'
 import GenreFilter from '../components/filters/GenreFilter.vue'
-import Result from '@/components/content/Result.vue'
+import Result from '@/components/Result.vue'
 </script>
 
 <script>
@@ -18,7 +18,7 @@ export default {
 			genres: new Set(),
 			order: true
 		}
-	}, //I want to sign my commit
+	},
 	methods: {
 		select_page(page) {
 			let url = this.backendUrl + 'top/series?'
