@@ -9,6 +9,7 @@ import AnimeCardAdder from '@/components/cards/AnimeCardAdder.vue'
 import axios from 'axios'
 
 import ConfirmationModal from './ConfirmationModal.vue'
+import SearchFilter from '../filters/SearchFilter.vue'
 defineProps({
     listName: String,
     listNameStatic: String,
@@ -58,7 +59,6 @@ export default {
             },
 
             animeTableColumns: ["Title", "Score", "Type"],
-            searchQuery: null,
             myjson: []
         }
     },
@@ -69,27 +69,21 @@ export default {
 
         emitRemoveEntry(position) {
             this.$emit('removeEntry', position)
+        },
+        mySearch(title) {
+            let url = this.backendUrl + 'anime/search'
+            if (title)
+                url += '?title=' + title
+            axios
+                .get(url)
+                .then(response => this.myjson = response.data.lst)
         }
     },
     mounted() {
         axios
             .get(this.backendUrl + 'top/anime')
             .then(response => this.myjson = response.data.lst)
-    },
-    computed: {
-        resultQuery(){
-        if (this.searchQuery) {
-            return this.myjson.filter(item => {
-            return this.searchQuery
-                .toLowerCase()
-                .split(" ")
-                .every(v => item.title.toLowerCase().includes(v));
-            });
-        } else {        
-            return this.myjson;
-        }
     }
-  }
 }
 </script>
 
@@ -124,9 +118,9 @@ export default {
                                 <div class="col anime-search" style="margin-right: 32px;">
                                     <h5>Anime Search</h5>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control text-box" v-model="searchQuery" aria-label="animeQuery" aria-describedby="inputGroup-sizing-default" placeholder="Search...">
+                                        <SearchFilter  class="form-control text-box" @query-search="mySearch"  aria-label="animeQuery" aria-describedby="inputGroup-sizing-default"/>
                                     </div>
-                                    <div v-for="item in resultQuery" :key="item.id" class="anime-cards">
+                                    <div v-for="item in myjson" :key="item.id" class="anime-cards">
                                         <AnimeCardAdder :key="item.mal_id" :anime_id="item.mal_id" :title="item.title" :score="item.mal_score" :image_url="item.image_url" :type="item.type"
                                         @add-entry="emitAddEntry"/>
                                     </div>    
