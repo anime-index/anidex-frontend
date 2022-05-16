@@ -133,9 +133,11 @@ export default {
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-transparent" @click="$emit('cancelEdit', listName, listItems)" data-bs-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-danger" data-bs-target="#confirmationModal"  data-bs-toggle="modal"><i class="bi bi-trash"></i> Delete</button>
-                        <button type="button" class="btn btn-primary" @click="$emit('saveChanges', listName, listItems)" data-bs-dismiss="modal"><i class="bi bi-save"></i> Save</button>
+                        <div> 
+                            <button type="button" class="btn btn-transparent" @click="$emit('cancelEdit', listName, listItems)" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" @click="$emit('saveChanges', listName, listItems)" data-bs-dismiss="modal"><i class="bi bi-save"></i> Save</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -230,10 +232,12 @@ h5::selection {
 
 .modal-footer {
     background-color: #130230;
+    justify-content: space-between;
 }
 
 .btn-transparent {
     color: #fff;
+    margin-right: 8px;
 }
 
 .btn-transparent:hover {
