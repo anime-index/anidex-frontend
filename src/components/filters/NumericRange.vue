@@ -16,7 +16,7 @@ defineProps({
 <template>
     <div>
         <label :for="rangeId" class="form-label">{{labelText}}</label>
-        <input type="range" class="form-range" :min="minValue" :max="maxValue" :step="rangeStep" :id="rangeId" :disabled="this.inputDisabled">
+        <input type="range" class="form-range" :min="minValue" :max="maxValue" :step="rangeStep" :id="rangeId" :disabled="inputDisabled">
     </div>
 </template>
 

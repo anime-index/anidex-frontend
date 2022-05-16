@@ -13,9 +13,9 @@ defineProps({
 <template>
     <div>
         <label :for="selectId" class="form-label">{{labelText}}</label>
-        <select class="form-select" :aria-label="selectId" :disabled="this.inputDisabled">
+        <select class="form-select" :aria-label="selectId" :disabled="inputDisabled">
             <option selected>-</option>
-            <option v-for="selection in selections" :key="selections.indexOf(selection)" :value="selection" :disabled="this.inputDisabled">{{selection}}</option>
+            <option v-for="selection in selections" :key="selections.indexOf(selection)" :value="selection" :disabled="inputDisabled">{{selection}}</option>
         </select>
     </div>
 </template>

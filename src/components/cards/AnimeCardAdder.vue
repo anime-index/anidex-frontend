@@ -17,7 +17,7 @@ defineProps({
                 </div>
                 <div class="col mysmall">
                     <div class="card-body mybody">
-                        <h5 class="card-title tit" :title="this.title">{{title}}</h5>
+                        <h5 class="card-title tit" :title="title">{{title}}</h5>
                         <p class="card-text">{{score.toPrecision(3)}} | {{type}}</p>
                         <button type="button" class="btn add-btn shadow-none" @click="$emit('addEntry', title, 0, image_url, type)">
                             <i class="bi bi-box-arrow-right" id="anime-add"></i>

@@ -25,7 +25,7 @@ defineProps({
                 </div>
                 <div class="col mysmall">
                     <div class="card-body mybody">
-                        <a :href="'https://myanimelist.net/anime/' + anime_id"><h5 class="card-title tit" :title="this.title">{{title}}</h5></a>
+                        <a :href="'https://myanimelist.net/anime/' + anime_id"><h5 class="card-title tit" :title="title">{{title}}</h5></a>
                         <p class="card-text">{{score.toPrecision(3)}} | {{format_number(popularity)}} members | 
                             {{type}} | {{episodes}} episode{{"s".repeat(episodes>1)}}</p>
                         <p class="card-text overfl">{{synopsis}}</p>
