@@ -1,6 +1,6 @@
 # anidex-frontend
 
-Frontend. Features: Top Anime, Franchises stats, Lists, Search
+Frontend. Main features: Top of Series and Anime, Series stats, Personal Lists, Anime Search
 
 ## Project setup
 
@@ -24,8 +24,6 @@ npm run dev
 The website needs a backend server to get the anime data. It needs to be run separately, as it is an indepdendent API. Go to: https://github.com/anime-index/anidex-backend
 
 
-#### Ignore (deployment)
-- npm run build
-- npm install -g serve (1st time only)
-- serve -s dist  
+<!--
 - Look for a deployment service
+-->
