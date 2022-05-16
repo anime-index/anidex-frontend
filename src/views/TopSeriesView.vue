@@ -18,7 +18,7 @@ export default {
 			genres: new Set(),
 			order: true
 		}
-	},
+	}, //I want to sign my commit
 	methods: {
 		select_page(page) {
 			let url = this.backendUrl + 'top/series?'
