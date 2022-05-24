@@ -16,4 +16,4 @@ const url = {'localhost': 'http://127.0.0.1:8000/',         //Local host
              'localtunnel': 'https://anidex-api.loca.lt/',  //Localtunnel redirection
              'deta': 'https://anidex.deta.dev/'}            //Deta deployment
 
-app.config.globalProperties.backendUrl = url['localhost']
+app.config.globalProperties.backendUrl = url['deta']

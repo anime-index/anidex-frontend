@@ -31,9 +31,9 @@ defineProps({
                             {{seasons}} season{{"s".repeat(seasons>1)}} | {{episodes}} episode{{"s".repeat(episodes>1)}} | {{date}}</p>
                         <p class="card-text overfl">{{synopsis}}</p>
                         <div class="align-bottom genres-row">
-                            <p v-if="genres.length>=1" class="badge rounded-pill  genre-badge">{{genres[0]["name"]}}</p>
-                            <p v-if="genres.length>=2" class="badge rounded-pill genre-badge">{{genres[1]["name"]}}</p>
-                            <p v-if="genres.length>=3" class="badge rounded-pill  genre-badge">{{genres[2]["name"]}}</p>
+                            <p v-if="genres.length>=1" class="badge rounded-pill  genre-badge">{{genres[0]}}</p>
+                            <p v-if="genres.length>=2" class="badge rounded-pill genre-badge">{{genres[1]}}</p>
+                            <p v-if="genres.length>=3" class="badge rounded-pill  genre-badge">{{genres[2]}}</p>
                         </div>
                     </div>
                 </div>
