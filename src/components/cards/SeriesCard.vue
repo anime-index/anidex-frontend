@@ -22,7 +22,7 @@ defineProps({
             <span v-if="order" class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-success mybadge">#{{position}}</span>
             <div class="row">
                 <div class="col myfixed">
-                    <img :src="image_url" onerror="this.onerror=null; this.src='/src/assets/anidex_logo.png'" class="myimg">
+                    <img :src="image_url" onerror="this.onerror=null; this.src='https:\//i.ibb.co/cLyDyWD/anidex-logo.png'" class="myimg">
                 </div>
                 <div class="col">
                     <div class="card-body mybody">

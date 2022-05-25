@@ -13,7 +13,7 @@ defineProps({
         <div class="card mycard">
             <div class="row">
                 <div class="col myfixed">
-                    <img :src="image_url" onerror="this.onerror=null; this.src='/src/assets/anidex_logo.png'" class="myimg">
+                    <img :src="image_url" onerror="this.onerror=null; this.src='https:\//i.ibb.co/cLyDyWD/anidex-logo.png'" class="myimg">
                 </div>
                 <div class="col mysmall">
                     <div class="card-body mybody">
