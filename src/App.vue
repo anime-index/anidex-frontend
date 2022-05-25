@@ -89,6 +89,7 @@ import { RouterLink, RouterView } from 'vue-router'
                     class="menu">
                   <li class="menu-item menu-item-has-children hidesmall">
                     <RouterLink to="/"><img class="homelogo" src="./assets/anidex_logo.png" alt="Anidex" height="70" width="70"></RouterLink>
+                    <a href="https://github.com/anime-index/anidex-frontend" title="Check the source code!"><img src="https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png" height="50px" alt="GitHub" style="margin-top: 16px; margin-bottom: 20px"></a>
                     <ul class="sub-menu">
                       <li class="menu-item">
                         <a href="https://mat.ub.edu/" ><img src="./assets/logo_ub.png" class="ub-logo" alt="Universitat de Barcelona" style="margin-top: 16px; margin-bottom: 20px"></a>
