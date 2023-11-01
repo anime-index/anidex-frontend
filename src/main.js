@@ -14,7 +14,7 @@ app.mount('#app')
 
 const url = {'localhost': 'http://127.0.0.1:8000/',                         //Local host
              'localtunnel': 'https://anidex-api.loca.lt/',                  //Localtunnel redirection
-             'deta': 'https://anidex.deta.dev/',                            //Deta deployment (Dead)
+             'deta': 'https://anidex.deta.dev/',                            //Deta deployment (deleted)
              'heroku': 'https://anidex-api-664a9850d6d6.herokuapp.com/'}    //Heroku deployment
 
 app.config.globalProperties.backendUrl = url['heroku']
