@@ -12,8 +12,9 @@ app.use(VueAxios, axios)
 
 app.mount('#app')
 
-const url = {'localhost': 'http://127.0.0.1:8000/',         //Local host
-             'localtunnel': 'https://anidex-api.loca.lt/',  //Localtunnel redirection
-             'deta': 'https://anidex.deta.dev/'}            //Deta deployment
+const url = {'localhost': 'http://127.0.0.1:8000/',                         //Local host
+             'localtunnel': 'https://anidex-api.loca.lt/',                  //Localtunnel redirection
+             'deta': 'https://anidex.deta.dev/',                            //Deta deployment (Dead)
+             'heroku': 'https://anidex-api-664a9850d6d6.herokuapp.com/'}    //Heroku deployment
 
-app.config.globalProperties.backendUrl = url['deta']
+app.config.globalProperties.backendUrl = url['heroku']
