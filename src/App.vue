@@ -49,6 +49,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </nav>
 
   <main>
+  <p>Hola s'actualitzen els canvis normals??</p>
   <RouterView />
   </main>
 
